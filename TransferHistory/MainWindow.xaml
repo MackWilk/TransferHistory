@@ -1,0 +1,39 @@
+﻿<Window x:Class="TransferHistory.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TransferHistory"
+        mc:Ignorable="d"
+        Title="TransferHistory" Height="421.2" Width="800">
+  <Grid Margin="0,0,-0.4,-1" Height="389" VerticalAlignment="Top">
+    <Label x:Name="label1" Content="Server Address" HorizontalAlignment="Left" Margin="16,4,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.283,4.312"/>
+    <TextBox x:Name="ServerAddress" HorizontalAlignment="Left" Height="23" Margin="111,8,0,0" TextWrapping="Wrap" Text="localhost" VerticalAlignment="Top" Width="120" TabIndex="0"/>
+    <Label x:Name="label1_Copy" Content="Server Port" HorizontalAlignment="Left" Margin="236,4,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.071,6.156"/>
+    <TextBox x:Name="ServerPort" HorizontalAlignment="Left" Height="23" Margin="308,7,0,0" TextWrapping="Wrap" Text="5481" VerticalAlignment="Top" Width="53" TabIndex="1"/>
+    <Label x:Name="label" Content="User name" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top"/>
+    <TextBox x:Name="UserName" HorizontalAlignment="Left" Height="23" Margin="111,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.497,-0.07" TabIndex="2"/>
+    <Label x:Name="label_Copy" Content="Password" HorizontalAlignment="Left" Margin="244,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,0.063"/>
+    <PasswordBox x:Name="password" HorizontalAlignment="Left" Margin="308,38,0,0" VerticalAlignment="Top" Width="118" Height="22" RenderTransformOrigin="0.644,0.618" TabIndex="3" KeyDown="OnKeyDownHandler"/>
+    <Label x:Name="label2" Content="Files Folder" HorizontalAlignment="Left" Margin="35,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.375,-2.094"/>
+    <TextBox x:Name="FileFolder" HorizontalAlignment="Left" Height="23" Margin="111,68,0,0" TextWrapping="Wrap" Text="c:\" VerticalAlignment="Top" Width="592" TabIndex="4"/>
+    <Label x:Name="label3" Content="Point Name Filter" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top"/>
+    <TextBox x:Name="NameFilter" HorizontalAlignment="Left" Height="23" Margin="111,96,0,0" TextWrapping="Wrap" Text="%" VerticalAlignment="Top" Width="232" TabIndex="5"/>
+    <Label x:Name="label3_Copy" Content="Start Date" HorizontalAlignment="Left" Margin="10,326,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.73,3.688"/>
+    <DatePicker x:Name="StartDate" HorizontalAlignment="Left" Margin="77,327,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.622,1.638" TabIndex="8"/>
+    <Label x:Name="label3_Copy1" Content="End Date" HorizontalAlignment="Left" Margin="250,327,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.73,3.688"/>
+    <DatePicker x:Name="EndDate" HorizontalAlignment="Left" Margin="308,328,0,0" VerticalAlignment="Top" TabIndex="9"/>
+    <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="163" Margin="11,151,0,0" VerticalAlignment="Top" Width="773" SelectionMode="Extended" TabIndex="7" SelectionChanged="listBox_SelectionChanged"/>
+    <Label x:Name="label3_Copy2" Content="Points" HorizontalAlignment="Left" Margin="69,120,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.481,0.141"/>
+    <Button x:Name="SelectNone" Content="Select None" HorizontalAlignment="Left" Margin="708,126,0,0" VerticalAlignment="Top" Width="75" Click="SelectNone_Click"/>
+    <Button x:Name="SelectAll" Content="Select All" HorizontalAlignment="Left" Margin="628,126,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.875,0.292" Click="SelectAll_Click"/>
+    <Button x:Name="Export" Content="Export" HorizontalAlignment="Left" Margin="708,329,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.875,0.292" Click="Export_Click"/>
+    <Button x:Name="Import" Content="Import" HorizontalAlignment="Left" Margin="708,68,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.875,0.292" Click="Import_Click"/>
+    <Button x:Name="Quit" Content="Quit" HorizontalAlignment="Left" Margin="708,357,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.875,0.292" Click="Quit_Click"/>
+    <TextBlock x:Name="Progress" HorizontalAlignment="Left" Height="23" Margin="11,357,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="692" Background="#FFE5E0E0"/>
+    <Button x:Name="Read_Points" Content="Read Points" HorizontalAlignment="Left" Margin="111,126,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.875,0.292" Click="Read_Points_Click" IsDefault="True"/>
+    <Label x:Name="label3_Copy3" Content="Date Format" HorizontalAlignment="Left" Margin="386,92,0,0" VerticalAlignment="Top"/>
+    <TextBox x:Name="DateFormatString" HorizontalAlignment="Left" Height="23" Margin="466,96,0,0" TextWrapping="Wrap" Text="yyyy-MM-dd HH:mm:ss.fff" VerticalAlignment="Top" Width="232" TabIndex="6"/>
+
+  </Grid>
+</Window>
