@@ -13,7 +13,7 @@ Studio. It is not supported or warranted in any way by Schneider Electric.
 The source code is available for you to freely use, modify and extend to 
 suit your requirements or that of your clients. It is perhaps not the 
 most optimized, efficient or elegant code but we hope that its simplicity 
-will encourage engagement with Geo SCADA explore the new ideas.
+will encourage engagement with Geo SCADA.
 
 This program is a Geo SCADA Utility for exporting and importing historic data.
 Files are exported to tab-separated text files, one per point.
