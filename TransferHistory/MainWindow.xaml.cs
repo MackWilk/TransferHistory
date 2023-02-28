@@ -99,7 +99,7 @@ namespace TransferHistory
 		private void Read_Points_Click(object sender, RoutedEventArgs e)
 		{
 			// Connect to database
-			ServerNode node = new ClearScada.Client.ServerNode("127.0.0.1", 5481);
+			ServerNode node = new ClearScada.Client.ServerNode(ServerAddress.Text, int.Parse(ServerPort.Text));
 			SimpleConnection = new ClearScada.Client.Simple.Connection("Utility");
 			try
 			{
@@ -287,7 +287,7 @@ namespace TransferHistory
 			int totalrecordsthispoint = 0;
 
 			// Connect to database
-			ServerNode node = new ClearScada.Client.ServerNode("127.0.0.1", 5481);
+			ServerNode node = new ClearScada.Client.ServerNode(ServerAddress.Text, int.Parse(ServerPort.Text));
 			SimpleConnection = new ClearScada.Client.Simple.Connection("Utility");
 			SimpleConnection.Connect(node);
 			AdvConnection = SimpleConnection.Server;
