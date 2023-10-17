@@ -37,7 +37,30 @@ namespace TransferHistory
 			InitializeComponent();
 			exePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 			LoadINIFile(exePath + "\\TransferHistory.ini");
+			DateFormatCombo.Items.Add("Select");
+			DateFormatCombo.SelectedIndex = 0;
+			DateFormatCombo.Items.Add("Simple");
+			DateFormatCombo.Items.Add("ISO8601");
 		}
+		// Date preformats
+		private void DateFormatCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			if (DateFormatCombo.SelectedIndex > 0)
+			{
+				switch (DateFormatCombo.SelectedIndex)
+				{
+					case 1:
+						DateFormatString.Text = "yyyy-MM-dd HH:mm:ss.fff";
+						break;
+					case 2:
+						DateFormatString.Text = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffzzz";
+						break;
+					default:
+						break;
+				}
+			}
+		}
+
 		// Options and selections
 		private string[] SelectedItems;
 		private void LoadINIFile(string filename)
@@ -59,6 +82,10 @@ namespace TransferHistory
 				StartDate.SelectedDate = DateTime.Parse(SelectedItems[5]);
 				EndDate.SelectedDate = DateTime.Parse(SelectedItems[6]);
 				DateFormatString.Text = SelectedItems[7];
+				if (SelectedItems[8].ToLower() == "true")
+				{
+					UTCBox.IsChecked = true;
+				}
 				// When the points are read, activate selections based on remaining data, skip a few spare & start at 10
 				// Set focus on password
 				password.Focus();
@@ -68,17 +95,17 @@ namespace TransferHistory
 		{
 			using (var tw = System.IO.File.CreateText(filename))
 			{
-				tw.WriteLine(ServerAddress.Text);
-				tw.WriteLine(ServerPort.Text);
-				tw.WriteLine(UserName.Text);
-				tw.WriteLine(FileFolder.Text);
-				tw.WriteLine(NameFilter.Text);
-				tw.WriteLine(StartDate.SelectedDate);
-				tw.WriteLine(EndDate.SelectedDate);
-				tw.WriteLine(DateFormatString.Text);
-				tw.WriteLine("");
-				tw.WriteLine("");
-				foreach (var s in listBox.SelectedItems)
+				tw.WriteLine(ServerAddress.Text); //0
+				tw.WriteLine(ServerPort.Text); //1
+				tw.WriteLine(UserName.Text); //2
+				tw.WriteLine(FileFolder.Text); //3
+				tw.WriteLine(NameFilter.Text); //4
+				tw.WriteLine(StartDate.SelectedDate); //5
+				tw.WriteLine(EndDate.SelectedDate); //6
+				tw.WriteLine(DateFormatString.Text); //7
+				tw.WriteLine(((bool)(UTCBox.IsChecked)).ToString()); //8
+				tw.WriteLine(""); //9
+				foreach (var s in listBox.SelectedItems) //10...
 				{
 					tw.WriteLine(s);
 				}
@@ -98,6 +125,8 @@ namespace TransferHistory
 		ClearScada.Client.Advanced.IServer AdvConnection;
 		private void Read_Points_Click(object sender, RoutedEventArgs e)
 		{
+			SaveINIFile(exePath + "\\TransferHistory.ini");
+
 			// Connect to database
 			ServerNode node = new ClearScada.Client.ServerNode(ServerAddress.Text, int.Parse(ServerPort.Text));
 			SimpleConnection = new ClearScada.Client.Simple.Connection("Utility");
@@ -185,6 +214,12 @@ namespace TransferHistory
 
 		async private void Export_Click(object sender, RoutedEventArgs e)
 		{
+			await Dispatcher.BeginInvoke(new Action(() =>
+			{
+				Progress.Text = "Prepare to export";
+			}));
+			await Task.Delay(1);
+
 			SaveINIFile(exePath + "\\TransferHistory.ini");
 
 			int pointnumber = 0;
@@ -193,6 +228,12 @@ namespace TransferHistory
 			string startDateFormatted = ((DateTime)(StartDate.SelectedDate)).ToString("yyyy-MM-dd HH:mm:ss.fff");
 			string endDateFormatted = ((DateTime)(EndDate.SelectedDate)).ToString("yyyy-MM-dd HH:mm:ss.fff");
 			string SQLConstraint = "\"RecordTime\" BETWEEN {TS '" + startDateFormatted + "'} AND {TS '" + endDateFormatted + "'}";
+
+			if ( !Directory.Exists(FileFolder.Text))
+			{
+				MessageBox.Show("Folder does not exist.");
+				return;
+			}
 
 			foreach (string pointnamedesc in listBox.SelectedItems)
 			{
@@ -244,7 +285,14 @@ namespace TransferHistory
 											nextline += ((DateTime)entry).ToString(DateFormatString.Text) + "\t";
 											break;
 										case "DateTimeOffset":
-											nextline += ((DateTimeOffset)entry).ToString(DateFormatString.Text) + "\t";
+											if ((bool)!UTCBox.IsChecked)
+											{
+												nextline += ((DateTimeOffset)entry).LocalDateTime.ToString(DateFormatString.Text) + "\t";
+											}
+											else
+											{
+												nextline += ((DateTimeOffset)entry).UtcDateTime.ToString(DateFormatString.Text) + "\t";
+											}
 											break;
 										default:
 											nextline += entry.ToString() + "\t";
@@ -280,6 +328,12 @@ namespace TransferHistory
 
 		async private void Import_Click(object sender, RoutedEventArgs e)
 		{
+			await Dispatcher.BeginInvoke(new Action(() =>
+			{
+				Progress.Text = "Prepare to import";
+			}));
+			await Task.Delay(1);
+
 			SaveINIFile(exePath + "\\TransferHistory.ini");
 
 			int pointcount = 0;
@@ -316,14 +370,16 @@ namespace TransferHistory
 					var lines = File.ReadAllLines(filename);
 					var HisRecords = new List<HisRecord>();
 					// Format: columnNames = "\"RecordTime\", \"ValueAsReal\", \"StateDesc\", \"QualityDesc\", \"ReasonDesc\"";
+					int rownum = 0;
 					foreach (var line in lines)
 					{
-						// If line contains RecordTime then ignore it - it's a header
-						if (line.Contains("RecordTime")) continue;
+						rownum++;
+						// If line contains RecordTime and row <= 2 then ignore it - it's a header
+						if (line.Contains("RecordTime") && rownum <= 2) continue;
 						// Split line into fields
 						var fields = line.Split('\t');
 						// Handle CSV as an alternative
-						if (line.Length == 1)
+						if (fields.Length == 1)
 						{
 							fields = line.Split(',');
 
@@ -340,6 +396,12 @@ namespace TransferHistory
 						var Record = new HisRecord();
 						if (DateTimeOffset.TryParse(fields[0], out Record.RecordTime))
 						{
+							// We read a value in using Local time, but if UTC we need to add/change the offset
+							// This is questionable but achieves the desired effect
+							if ((bool)UTCBox.IsChecked)
+							{
+								Record.RecordTime = Record.RecordTime.Add(Record.RecordTime.Offset);
+							}
 							// Get sample value
 							if (Double.TryParse(fields[1], out Record.Value))
 							{
@@ -354,12 +416,23 @@ namespace TransferHistory
 									HisRecords.Add(Record);
 									if (HisRecords.Count >= 5000) // Batch Size
 									{
-										WriteHistory(HisRecords, PointObj);
-										await Dispatcher.BeginInvoke(new Action(() =>
+										try
 										{
-											Progress.Text = $"Wrote {totalrecordsthispoint} records to {ObjName}";
-										}));
-										await Task.Delay(1);
+											WriteHistory(HisRecords, PointObj);
+											await Dispatcher.BeginInvoke(new Action(() =>
+											{
+												Progress.Text = $"Wrote {totalrecordsthispoint} records to {ObjName}";
+											}));
+											await Task.Delay(1);
+										}
+										catch (Exception ex)
+										{
+											await Dispatcher.BeginInvoke(new Action(() =>
+											{
+												Progress.Text = $"Error {ex.Message} writing to {ObjName}";
+											}));
+											await Task.Delay(1);
+										}
 									}
 								}
 								else
@@ -371,18 +444,45 @@ namespace TransferHistory
 									args[3] = ""; // Event log comment
 									PointObj.InvokeMethod("Historic.ModifyValue", args);
 								}
+							} // else can't read the value
+							else
+							{
+								await Dispatcher.BeginInvoke(new Action(() =>
+								{
+									Progress.Text = $"Cannot read value: {fields[1]}";
+								}));
+								await Task.Delay(1);
 							}
 						} // else can't read the date
+						else
+						{
+							await Dispatcher.BeginInvoke(new Action(() =>
+							{
+								Progress.Text = $"Cannot read date: {fields[0]}";
+							}));
+							await Task.Delay(1);
+						}
 					}
 					// Remaining records
 					if (HisRecords.Count > 0)
 					{
-						WriteHistory(HisRecords, PointObj);
-						await Dispatcher.BeginInvoke(new Action(() =>
+						try
 						{
-							Progress.Text = $"Wrote {totalrecordsthispoint} records to {ObjName}";
-						}));
-						await Task.Delay(1);
+							WriteHistory(HisRecords, PointObj);
+							await Dispatcher.BeginInvoke(new Action(() =>
+							{
+								Progress.Text = $"Wrote {totalrecordsthispoint} records to {ObjName}";
+							}));
+							await Task.Delay(1);
+						}
+						catch (Exception ex)
+						{
+							await Dispatcher.BeginInvoke(new Action(() =>
+							{
+								Progress.Text = $"Error {ex.Message} writing to {ObjName}";
+							}));
+							await Task.Delay(1);
+						}
 					}
 					totalrecords += totalrecordsthispoint;
 				} // else point does not exist
@@ -477,5 +577,7 @@ namespace TransferHistory
 			// Count and state # selected
 			Progress.Text = $"{listBox.SelectedItems.Count} points selected.";
 		}
+
+
 	}
 }
