@@ -341,7 +341,8 @@ namespace TransferHistory
 			int totalrecordsthispoint = 0;
 
 			// Connect to database
-			ServerNode node = new ClearScada.Client.ServerNode(ServerAddress.Text, int.Parse(ServerPort.Text));
+#pragma warning disable 612, 618
+			ServerNode node = new ClearScada.Client.ServerNode(ConnectionType.Standard, ServerAddress.Text, int.Parse(ServerPort.Text));
 			SimpleConnection = new ClearScada.Client.Simple.Connection("Utility");
 			SimpleConnection.Connect(node);
 			AdvConnection = SimpleConnection.Server;
@@ -357,6 +358,7 @@ namespace TransferHistory
 				}));
 				return;
 			}
+#pragma warning restore 612, 618
 
 			// Read files in the input directory
 			var files = Directory.GetFiles(FileFolder.Text);
