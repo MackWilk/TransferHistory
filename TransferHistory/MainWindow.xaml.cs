@@ -1,6 +1,9 @@
-﻿using System;
+﻿using ClearScada.Client;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,9 +14,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.IO;
-using System.Reflection;
-using ClearScada.Client;
+using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 
 namespace TransferHistory
@@ -32,37 +34,49 @@ namespace TransferHistory
 	public partial class MainWindow : Window
 	{
 		private string exePath;
-		public MainWindow()
-		{
-			InitializeComponent();
-			exePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-			LoadINIFile(exePath + "\\TransferHistory.ini");
-			DateFormatCombo.Items.Add("Select");
-			DateFormatCombo.SelectedIndex = 0;
-			DateFormatCombo.Items.Add("Simple");
-			DateFormatCombo.Items.Add("ISO8601");
-		}
-		// Date preformats
-		private void DateFormatCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-		{
-			if (DateFormatCombo.SelectedIndex > 0)
-			{
-				switch (DateFormatCombo.SelectedIndex)
-				{
-					case 1:
-						DateFormatString.Text = "yyyy-MM-dd HH:mm:ss.fff";
-						break;
-					case 2:
-						DateFormatString.Text = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffzzz";
-						break;
-					default:
-						break;
-				}
-			}
-		}
+        private bool first = true;
+        public MainWindow()
+        {
+            InitializeComponent();
+            exePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            if (first)
+            {
+                //File.Delete(exePath + "\\TransferHistory.ini"); 
+                StartDate.SelectedDate = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+                EndDate.SelectedDate = DateTime.UtcNow;
+                first = false;
+            }
+            LoadINIFile(exePath + "\\TransferHistory.ini");
+            DateFormatCombo.Items.Add("Select");
+            DateFormatCombo.SelectedIndex = 0;
+            DateFormatCombo.Items.Add("Simple");
+            DateFormatCombo.Items.Add("ANSI (DataFile Export)");
+            DateFormatCombo.Items.Add("ISO8601");
+        }
+        // Date preformats
+        private void DateFormatCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DateFormatCombo.SelectedIndex > 0)
+            {
+                switch (DateFormatCombo.SelectedIndex)
+                {
+                    case 1:
+                        DateFormatString.Text = "yyyy-MM-dd HH:mm:ss.fff";
+                        break;
+                    case 2:
+                        DateFormatString.Text = "yyyy,MM,dd,HH,mm,ss";
+                        break;
+                    case 3:
+                        DateFormatString.Text = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffzzz";
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
 
-		// Options and selections
-		private string[] SelectedItems;
+        // Options and selections
+        private string[] SelectedItems;
 		private void LoadINIFile(string filename)
 		{
 			// INI file is located where this .exe is located
@@ -127,11 +141,11 @@ namespace TransferHistory
 		{
 			SaveINIFile(exePath + "\\TransferHistory.ini");
 
-			// Connect to database
-			ServerNode node = new ClearScada.Client.ServerNode(ServerAddress.Text, int.Parse(ServerPort.Text));
-			SimpleConnection = new ClearScada.Client.Simple.Connection("Utility");
-			try
-			{
+            // Connect to database
+            try
+            {
+                ServerNode node = new ClearScada.Client.ServerNode(ServerAddress.Text, int.Parse(ServerPort.Text));
+				SimpleConnection = new ClearScada.Client.Simple.Connection("Utility");
 				SimpleConnection.Connect(node);
 				AdvConnection = SimpleConnection.Server;
 			}
@@ -212,121 +226,163 @@ namespace TransferHistory
 			this.Close();
 		}
 
-		async private void Export_Click(object sender, RoutedEventArgs e)
-		{
-			await Dispatcher.BeginInvoke(new Action(() =>
-			{
-				Progress.Text = "Prepare to export";
-			}));
-			await Task.Delay(1);
+        async private void Export_Click(object sender, RoutedEventArgs e)
+        {
+            // Mackenzie Wilkins: Added support for Exporting as ANSI file
+            bool Export_ANSI = false;
+            Encoding encoding = Encoding.UTF8;
+            if (sender.Equals(Export_Copy))
+            {
+                //MessageBox.Show("ANSI");
+                DateFormatCombo.SelectedIndex = 2;
+                DateFormatCombo_SelectionChanged(null, null);
+                encoding = Encoding.GetEncoding(1252);
+                Export_ANSI = true;
+            }
 
-			SaveINIFile(exePath + "\\TransferHistory.ini");
-
-			int pointnumber = 0;
-			int totalrecords = 0;
-
-			string startDateFormatted = ((DateTime)(StartDate.SelectedDate)).ToString("yyyy-MM-dd HH:mm:ss.fff");
-			string endDateFormatted = ((DateTime)(EndDate.SelectedDate)).ToString("yyyy-MM-dd HH:mm:ss.fff");
-			string SQLConstraint = "\"RecordTime\" BETWEEN {TS '" + startDateFormatted + "'} AND {TS '" + endDateFormatted + "'}";
-
-			if ( !Directory.Exists(FileFolder.Text))
-			{
-				MessageBox.Show("Folder does not exist.");
+            System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show(
+                "The \"Export (As DataFile)\" feature is much faster than the normal \"Export\" option but requires the data file to exist on the GeoSCADA Server Host.\nClick Yes if you want to proceed.", // The message to display
+				"Are you on the GeoSCADA Server Host?",           // The title of the message box
+                System.Windows.Forms.MessageBoxButtons.YesNo,  // Specifies Yes and No buttons
+				System.Windows.Forms.MessageBoxIcon.Question   // Optional: Adds a question icon
+			);
+            if (result == System.Windows.Forms.DialogResult.No)
+            {
+                // Code to execute if the user clicks "No"
+                MessageBox.Show("Export Cancelled");
 				return;
-			}
+            }
+            await Dispatcher.BeginInvoke(new Action(() =>
+            {
+                Progress.Text = "Prepare to export";
+            }));
+            await Task.Delay(1);
 
-			foreach (string pointnamedesc in listBox.SelectedItems)
-			{
-				string pointname = pointnamedesc.Substring(0, pointnamedesc.LastIndexOf('(') - 1);
-				string fn = FileFolder.Text + "\\" + pointname.Replace('*', '$') + ".txt";
+            SaveINIFile(exePath + "\\TransferHistory.ini");
 
-				string columnNames = "\"RecordTime\", \"ValueAsReal\", \"StateDesc\", \"QualityDesc\", \"ReasonDesc\"";
-				string SQL = "SELECT " + columnNames + " FROM CDBHISTORIC H INNER JOIN CDBObject O ON H.Id=O.Id WHERE O.FullName = '" + pointname + "' And " + SQLConstraint + " Order By \"RecordTime\" ASC";
+            int pointnumber = 0;
+            int totalrecords = 0;
+            string SQLConstraint = "";
 
-				ClearScada.Client.Advanced.IQuery serverQuery = AdvConnection.PrepareQuery(SQL, new ClearScada.Client.Advanced.QueryParseParameters());
-				ClearScada.Client.Advanced.QueryResult queryResult = serverQuery.ExecuteSync(new ClearScada.Client.Advanced.QueryExecuteParameters());
+            try
+            {
+                string startDateFormatted = ((DateTime)(StartDate.SelectedDate)).ToString("yyyy-MM-dd HH:mm:ss.fff");
+                string endDateFormatted = ((DateTime)(EndDate.SelectedDate)).ToString("yyyy-MM-dd HH:mm:ss.fff");
+                SQLConstraint = "\"RecordTime\" BETWEEN {TS '" + startDateFormatted + "'} AND {TS '" + endDateFormatted + "'}";
+            }
+            catch (Exception err)
+            {
+                System.Windows.MessageBox.Show("Issue with selected date " + err.Message);
+                return;
+            }
 
-				if (queryResult.Status == ClearScada.Client.Advanced.QueryStatus.Succeeded || queryResult.Status == ClearScada.Client.Advanced.QueryStatus.NoDataFound)
-				{
-					if (queryResult.Rows.Count > 0)
-					{
-						// Open file
-						using (var his = System.IO.File.CreateText(fn))
-						{
-							pointnumber++;
-							// Write header
-							his.WriteLine(columnNames.Replace(',', '\t'));
 
-							IEnumerator<ClearScada.Client.Advanced.QueryRow> rows = queryResult.Rows.GetEnumerator();
-							int rownumber = 0;
-							while (rows.MoveNext())
-							{
-								if (rownumber % 1000 == 0)
-								{
-									await Dispatcher.BeginInvoke(new Action(() =>
-									{
-										Progress.Text = "Row " + rownumber.ToString() + " of " + queryResult.Rows.Count.ToString() + " for " + pointname;
-									}));
-									await Task.Delay(1);
-								}
-								rownumber++;
+            if (!Directory.Exists(FileFolder.Text))
+            {
+                System.Windows.MessageBox.Show("Folder does not exist.");
+                return;
+            }
 
-								string nextline = "";
-								foreach (var entry in rows.Current.Data)
-								{
-									//Console.WriteLine(entry.GetType().Name);
+            foreach (string pointnamedesc in listBox.SelectedItems)
+            {
+                string pointname = pointnamedesc.Substring(0, pointnamedesc.LastIndexOf('(') - 1);
+                string fn = FileFolder.Text + "\\" + pointname.Replace('*', '$') + ".txt";
 
-									switch (entry.GetType().Name)
-									{
-										case "String":
-											nextline += "\"" + (string)entry + "\"\t";
-											break;
-										case "DateTime":
-											nextline += ((DateTime)entry).ToString(DateFormatString.Text) + "\t";
-											break;
-										case "DateTimeOffset":
-											if ((bool)!UTCBox.IsChecked)
-											{
-												nextline += ((DateTimeOffset)entry).LocalDateTime.ToString(DateFormatString.Text) + "\t";
-											}
-											else
-											{
-												nextline += ((DateTimeOffset)entry).UtcDateTime.ToString(DateFormatString.Text) + "\t";
-											}
-											break;
-										default:
-											nextline += entry.ToString() + "\t";
-											break;
-									}
-								}
-								// Remove last tab
-								his.WriteLine(nextline.Substring(0, nextline.Length - 1));
-							}
-							totalrecords += rownumber;
-						}
-					}
-					else
-					{
-						// No rows found, do not output file for this point
-					}
-				}
-				else
-				{
-					await Dispatcher.BeginInvoke(new Action(() =>
-					{
-						Progress.Text = "Database query error";
-					}));
-					return;
-				}
-				serverQuery.Dispose();
-			}
-			await Dispatcher.BeginInvoke(new Action(() =>
-			{
-				Progress.Text = $"Written {pointnumber} files and {totalrecords} records.";
-			}));
-		}
+                // if Exporting as ANSI, don't query additional data
+                string columnNames = "\"RecordTime\", \"ValueAsReal\"" + (Export_ANSI ? "" : ", \"StateDesc\", \"QualityDesc\", \"ReasonDesc\"");
+                string SQL = "SELECT " + columnNames + " FROM CDBHISTORIC H INNER JOIN CDBObject O ON H.Id=O.Id WHERE O.FullName = '" + pointname + "' And " + SQLConstraint + " Order By \"RecordTime\" ASC";
 
-		async private void Import_Click(object sender, RoutedEventArgs e)
+                ClearScada.Client.Advanced.IQuery serverQuery = AdvConnection.PrepareQuery(SQL, new ClearScada.Client.Advanced.QueryParseParameters());
+                ClearScada.Client.Advanced.QueryResult queryResult = serverQuery.ExecuteSync(new ClearScada.Client.Advanced.QueryExecuteParameters());
+
+                if (queryResult.Status == ClearScada.Client.Advanced.QueryStatus.Succeeded || queryResult.Status == ClearScada.Client.Advanced.QueryStatus.NoDataFound)
+                {
+                    if (queryResult.Rows.Count > 0)
+                    {
+                        // Open file
+                        using (var his = new StreamWriter(fn, false, encoding))//System.IO.File.CreateText(fn))
+                        {
+                            pointnumber++;
+                            // Write header if not Ansi
+                            if (!Export_ANSI)
+                                his.WriteLine(columnNames.Replace(',', '\t'));
+
+                            IEnumerator<ClearScada.Client.Advanced.QueryRow> rows = queryResult.Rows.GetEnumerator();
+                            int rownumber = 0;
+                            while (rows.MoveNext())
+                            {
+                                if (rownumber % 1000 == 0)
+                                {
+                                    await Dispatcher.BeginInvoke(new Action(() =>
+                                    {
+                                        Progress.Text = "Row " + rownumber.ToString() + " of " + queryResult.Rows.Count.ToString() + " for " + pointname;
+                                    }));
+                                    await Task.Delay(1);
+                                }
+                                rownumber++;
+
+                                string nextline = "";
+
+                                string delimiter = "\t";
+
+                                if (Export_ANSI)
+                                    delimiter = ",";
+
+                                foreach (var entry in rows.Current.Data)
+                                {
+                                    //Console.WriteLine(entry.GetType().Name);
+
+                                    switch (entry.GetType().Name)
+                                    {
+                                        case "String":
+                                            nextline += "\"" + (string)entry + "\"" + delimiter;
+                                            break;
+                                        case "DateTime":
+                                            nextline += ((DateTime)entry).ToString(DateFormatString.Text) + delimiter;
+                                            break;
+                                        case "DateTimeOffset":
+                                            if ((bool)!UTCBox.IsChecked)
+                                            {
+                                                nextline += ((DateTimeOffset)entry).LocalDateTime.ToString(DateFormatString.Text) + delimiter;
+                                            }
+                                            else
+                                            {
+                                                nextline += ((DateTimeOffset)entry).UtcDateTime.ToString(DateFormatString.Text) + delimiter;
+                                            }
+                                            break;
+                                        default:
+                                            nextline += entry.ToString() + delimiter;
+                                            break;
+                                    }
+                                }
+                                // Remove last delimiter
+                                his.WriteLine(nextline.Substring(0, nextline.Length - delimiter.Length));
+                            }
+                            totalrecords += rownumber;
+                        }
+                    }
+                    else
+                    {
+                        // No rows found, do not output file for this point
+                    }
+                }
+                else
+                {
+                    await Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        Progress.Text = "Database query error";
+                    }));
+                    return;
+                }
+                serverQuery.Dispose();
+            }
+            await Dispatcher.BeginInvoke(new Action(() =>
+            {
+                Progress.Text = $"Written {pointnumber} files and {totalrecords} records.";
+            }));
+        }
+
+        async private void Import_Click(object sender, RoutedEventArgs e)
 		{
 			await Dispatcher.BeginInvoke(new Action(() =>
 			{
@@ -340,14 +396,13 @@ namespace TransferHistory
 			int totalrecords = 0;
 			int totalrecordsthispoint = 0;
 
-			// Connect to database
-#pragma warning disable 612, 618
-			ServerNode node = new ClearScada.Client.ServerNode(ConnectionType.Standard, ServerAddress.Text, int.Parse(ServerPort.Text));
-			SimpleConnection = new ClearScada.Client.Simple.Connection("Utility");
-			SimpleConnection.Connect(node);
-			AdvConnection = SimpleConnection.Server;
-			try
-			{
+            // Connect to database
+            try
+            {
+                ServerNode node = new ClearScada.Client.ServerNode(ServerAddress.Text, int.Parse(ServerPort.Text));
+				SimpleConnection = new ClearScada.Client.Simple.Connection("Utility");
+				SimpleConnection.Connect(node);
+				AdvConnection = SimpleConnection.Server;
 				SimpleConnection.LogOn(UserName.Text, password.SecurePassword);
 			}
 			catch (Exception err)
@@ -358,7 +413,6 @@ namespace TransferHistory
 				}));
 				return;
 			}
-#pragma warning restore 612, 618
 
 			// Read files in the input directory
 			var files = Directory.GetFiles(FileFolder.Text);
@@ -494,7 +548,94 @@ namespace TransferHistory
 				Progress.Text = $"Complete. Wrote {totalrecords} records to {pointcount} points.";
 			}));
 		}
-		void WriteHistory( List<HisRecord> HisRecords, ClearScada.Client.Simple.DBObject PointObj)
+
+        async private void Import_Click_DataFile(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show(
+				"The \"Import (As DataFile)\" feature is much faster than the normal \"Export\" option but requires the data file to exist on the GeoSCADA Server Host.\nClick Yes if you want to proceed.", // The message to display
+				"Are you on the GeoSCADA Server Host?",           // The title of the message box
+				System.Windows.Forms.MessageBoxButtons.YesNo,  // Specifies Yes and No buttons
+				System.Windows.Forms.MessageBoxIcon.Question   // Optional: Adds a question icon
+			);
+            if (result == System.Windows.Forms.DialogResult.No)
+            {
+                // Code to execute if the user clicks "No"
+                MessageBox.Show("Export Cancelled");
+                return;
+            }
+
+            await Dispatcher.BeginInvoke(new Action(() =>
+            {
+                Progress.Text = "Prepare to import";
+            }));
+            await Task.Delay(1);
+
+            SaveINIFile(exePath + "\\TransferHistory.ini");
+
+            int filecount = 0;
+            int filetotal = 0;
+			int skipped = 0;
+
+            // Connect to database
+            try
+            {
+                ServerNode node = new ClearScada.Client.ServerNode(ServerAddress.Text, int.Parse(ServerPort.Text));
+                SimpleConnection = new ClearScada.Client.Simple.Connection("Utility");
+                SimpleConnection.Connect(node);
+                AdvConnection = SimpleConnection.Server;
+                SimpleConnection.LogOn(UserName.Text, password.SecurePassword);
+            }
+            catch (Exception err)
+            {
+                await Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    Progress.Text = "Cannot log in. " + err.Message;
+                }));
+                return;
+            }
+
+            // Read files in the input directory
+            var files = Directory.GetFiles(FileFolder.Text);
+            foreach (var filename in files)
+            {
+				++filetotal;
+                //MessageBox.Show(filename);
+                var ObjName = Path.GetFileNameWithoutExtension(filename).Replace('$', '*'); // Replace(Left(Fin, InStrRev(Fin, ".") - 1), "$", "*");
+                var PointObj = SimpleConnection.GetObject(ObjName);
+
+				// May also check this is a point/accumulator with historic storage
+				if (PointObj == null)
+				{
+					++skipped;
+					continue;
+				}
+				// if file has header row (i.e. Contains "RecordTime"), it is not in DataFile Format and should be skipped
+				var line = File.ReadLines(filename).First();
+				if (line.Contains("RecordTime"))
+				{
+                    ++skipped;
+                    continue;
+				}
+
+                try
+                {
+                    PointObj.InvokeMethod("Historic.LoadDataFile", files);
+					++filecount;
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show("File load didn't work. Error: " + err.Message);
+                    return;
+                }
+            }
+            await Dispatcher.BeginInvoke(new Action(() =>
+            {
+                Progress.Text = $"Complete. Wrote {filecount} files to {filetotal} points." +(skipped==0 ? "" : "{skipped} points skipped due to file not being correct format or history not enabled on point.");
+            }));
+        }
+
+
+        void WriteHistory( List<HisRecord> HisRecords, ClearScada.Client.Simple.DBObject PointObj)
 		{
 			// Convert our records into four separate arrays
 			var t = new DateTimeOffset[HisRecords.Count];

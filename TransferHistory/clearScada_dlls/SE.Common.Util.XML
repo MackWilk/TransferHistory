@@ -1,0 +1,2695 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SE.Common.Util</name>
+    </assembly>
+    <members>
+        <member name="T:SchneiderElectric.Common.CommonAssemblyInfo">
+            <summary>
+            Version constants
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.CompanyName">
+            <summary>
+            Name of company
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.CompanyNameEx">
+            <summary>
+            Name of company (spaces removed)
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.CompanyLegalName">
+            <summary>
+            Legal name of company
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.CopyrightNotice">
+            <summary>
+            Copyright notice
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.TrademarkNotice">
+            <summary>
+            Trademark notice
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.Product">
+            <summary>
+            Product identifier
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.ProductName">
+            <summary>
+            Full product name
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.ShortName">
+            <summary>
+            Short product name
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.MajorVersion">
+            <summary>
+            Major version number
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.MinorVersion">
+            <summary>
+            Minor version number
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.BuildNumber">
+            <summary>
+            Build number
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.RevisionNumber">
+            <summary>
+            Revision number
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.VersionString">
+            <summary>
+            Version string
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.ProductCode">
+            <summary>
+            Product GUID
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.Lang">
+            <summary>
+            Language code
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.CharSet">
+            <summary>
+            Character set
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.LangCharSet">
+            <summary>
+            Language and character set
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.InfoLink">
+            <summary>
+            URL for product information
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.SupportLink">
+            <summary>
+            URL for product support
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.UpdateInformation">
+            <summary>
+            URL for product update information
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.IntendedUsage">
+            <summary>
+            Description of intended usage for build
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.IconPrefix">
+            <summary>
+            Prefix on icon filenames
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.SplashScreenApplicationName">
+            <summary>
+            Product name in splash screen
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.SplashScreenCopyrightNotice">
+            <summary>
+            Copyright notice in splash screen
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.RegistryBase">
+            <summary>
+            Registry base key
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.RegistryWow6432NodeBase">
+            <summary>
+            Registry base key (Wow6432)
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.RegistryRoot">
+            <summary>
+            Registry root key
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.FolderVendor">
+            <summary>
+            Vendor folder
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.FolderProduct">
+            <summary>
+            Product folder
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.CommonAssemblyInfo.OdbcDriverName">
+            <summary>
+            ODBC driver name
+            </summary>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.EnumBindingSourceExtension">
+            <summary>
+            To be used with drop-down lists. Provides all possible values of an enumeration
+            Example for a combo box defined in XAML
+                  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:MyEnum}}}"
+            where 'MyEnum' is a property of type enumeration
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.EnumBindingSourceExtension.#ctor(System.Type)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="enumType"></param>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.EnumBindingSourceExtension.EnumType">
+            <summary>
+            EnumType property
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.EnumBindingSourceExtension.ProvideValue(System.IServiceProvider)">
+            <inheritdoc />
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.EnumDescriptionTypeConverter">
+            <summary>
+            Add this type converter to your enumeration to support localized descriptions
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.EnumDescriptionTypeConverter.#ctor(System.Type)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.EnumDescriptionTypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.LocalizedDescriptionAttribute">
+            <summary>
+            Provide a means for obtaining a localized description for an enumeration value.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LocalizedDescriptionAttribute.#ctor(System.String,System.Type)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="resourceKey"></param>
+            <param name="resourceType"></param>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.LocalizedDescriptionAttribute.Description">
+            <inheritdoc />
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.BinaryWriterExtensions">
+            <summary>
+            Extension methods for reading ClearSCADA data types with a BinaryReader.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.BinaryWriterExtensions.WriteClearSCADAString(System.IO.BinaryWriter,System.String)">
+            <summary>
+            Writes a length prefixed string at the current position in the BinaryWriter.
+            </summary>
+            <param name="writer">
+            The BinaryWriter instance.
+            </param>
+            <param name="value">The string to write.</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.BinaryWriterExtensions.WriteLongClearSCADAString(System.IO.BinaryWriter,System.String)">
+            <summary>
+            Writes a length prefixed string at the current position in the BinaryWriter.
+            </summary>
+            <param name="writer">
+            The BinaryWriter instance.
+            </param>
+            <param name="value">The string to write.</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.BinaryWriterExtensions.WriteClearSCADAIpv4Address(System.IO.BinaryWriter,System.Net.IPAddress)">
+            <summary>
+            Writes a 4 byte value (ULONG) as stored in ClearSCADA representing the IPAddress structure (only IPv4 addresses).
+            </summary>
+            <param name="writer">
+            The BinaryWriter instance.
+            </param>
+            <param name="address">The IP Address to write.</param>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.EnumExtensions">
+            <summary>
+            <see cref="T:System.Enum"/> extensions
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.EnumExtensions.Description(System.Enum)">
+            <summary>
+            Retrieves the value of the <see cref="T:System.ComponentModel.DescriptionAttribute"/> for the specified enumeration value. If no description is defined, the
+            enumeration value's <see cref="M:System.Enum.ToString"/> is returned.
+            </summary>
+            <param name="value"></param>
+            <returns>
+            The enumeration value's <see cref="T:System.ComponentModel.DescriptionAttribute"/> value if available. Otherwise, the result of <see cref="M:System.Enum.ToString"/>
+            </returns>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.IPAddressExtensions">
+            <summary>
+            <see cref="T:System.Net.IPAddress"/> extensions
+            </summary>
+            <remarks>
+            Based upon <see href="https://blogs.msdn.microsoft.com/knom/2008/12/31/ip-address-calculations-with-c-subnetmasks-networks/"/>
+            </remarks>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.IPAddressExtensions.GetBroadcastAddress(System.Net.IPAddress,System.Net.IPAddress)">
+            <summary>
+            Calculate the broadcast address
+            </summary>
+            <param name="address"></param>
+            <param name="subnetMask"></param>
+            <returns>The broadcast address</returns>
+            <exception cref="T:System.ArgumentException">thrown if the IP Address and Subnet Masks are different lengths</exception>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.IPAddressExtensions.GetNetworkAddress(System.Net.IPAddress,System.Net.IPAddress)">
+            <summary>
+            Calculate the network address
+            </summary>
+            <param name="address"></param>
+            <param name="subnetMask"></param>
+            <returns>The network address</returns>
+            <exception cref="T:System.ArgumentException">thrown if the IP Address and Subnet Masks are different lengths</exception>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.IPAddressExtensions.LessThanEqualTo(System.Net.IPAddress,System.Net.IPAddress)">
+            <summary>
+            Is this IP Address less than or equal to the specified object IP Address?
+            </summary>
+            <param name="thisIPAddress"></param>
+            <param name="objectIPAddress"></param>
+            <returns>true, when thisIPAddress 'less than equal to' objectIPAddress</returns>
+            /// <exception cref="T:System.ArgumentException">thrown if the two IP Addresses are different lengths</exception>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.IPAddressExtensions.IsInSameSubnet(System.Net.IPAddress,System.Net.IPAddress,System.Net.IPAddress,System.Net.IPAddress)">
+            <summary>
+            Compares the given IP Address and Subnet to this IP Address
+            </summary>
+            <param name="address"></param>
+            <param name="otherIPAddress"></param>
+            <param name="subnetMask"></param>
+            <param name="otherSubnetMask"></param>
+            <returns>true if both IP Addresses are within the same Subnet</returns>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.BinaryReaderExtensions">
+            <summary>
+            Extension methods for reading ClearSCADA data types with a BinaryReader.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.BinaryReaderExtensions.ReadClearSCADAString(System.IO.BinaryReader)">
+            <summary>
+            Reads a length prefixed string at the current position in the BinaryReader.
+            </summary>
+            <param name="reader">
+            The BinaryReader instance.
+            </param>
+            <returns>
+            The string.
+            </returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.BinaryReaderExtensions.ReadLongClearSCADAString(System.IO.BinaryReader)">
+            <summary>
+            Reads a length prefixed string at the current position in the BinaryReader.
+            </summary>
+            <param name="reader">
+            The BinaryReader instance.
+            </param>
+            <returns>
+            The string.
+            </returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.BinaryReaderExtensions.ReadClearSCADAIpv4Address(System.IO.BinaryReader)">
+            <summary>
+            Reads 4 bytes(ULONG) of data representing an IP Address in ClearSCADA
+            </summary>
+            <param name="reader">
+            The BinaryReader instance.
+            </param>
+            <returns>
+            The string.
+            </returns>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.ProcessExtensions">
+            <summary>
+            Extension methods for the <see cref="T:System.Diagnostics.Process"/> class
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.ProcessExtensions.GetProcessFullPath(System.Diagnostics.Process)">
+            <summary>
+            Retrieve the full pathname for a given <see cref="T:System.Diagnostics.Process"/>. Note: this uses Win32 functions in case the calling process
+            is non-elevated, and the target process is elevated (The .NET <see cref="T:System.Diagnostics.Process"/> methods will generally trigger an
+            'AccessDenied' <see cref="T:System.ComponentModel.Win32Exception"/> in this case)
+            </summary>
+            <param name="process">The <see cref="T:System.Diagnostics.Process"/> instance whose full pathname should be retrieved.</param>
+            <returns>The full pathname if successful, otherwise an empty string.</returns>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.WaitHandleExtensions">
+            <summary>
+            Extension methods for the <see cref="T:System.Threading.WaitHandle"/> class
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.WaitHandleExtensions.WaitOneAsync(System.Threading.WaitHandle,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronous wait support via <see cref="T:System.Threading.Tasks.Task"/>
+            </summary>
+            <param name="handle">The <see cref="T:System.Threading.WaitHandle"/> instance to asynchronously wait to be set</param>
+            <param name="millisecondsTimeout">The wait timeout</param>
+            <param name="cancellationToken">A cancellation token to cancel the asynchronous wait</param>
+            <returns>A task which the caller can await. The task will complete once the event is set. Optionally,
+            the cancellation token may be used to cancel the wait</returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.WaitHandleExtensions.WaitOneAsync(System.Threading.WaitHandle,System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronous wait support via <see cref="T:System.Threading.Tasks.Task"/>
+            </summary>
+            <param name="handle">The <see cref="T:System.Threading.WaitHandle"/> instance to asynchronously wait to be set</param>
+            <param name="timeout">The wait timeout</param>
+            <param name="cancellationToken">A cancellation token to cancel the asynchronous wait</param>
+            <returns>A task which the caller can await. The task will complete once the event is set. Optionally,
+            the cancellation token may be used to cancel the wait</returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.WaitHandleExtensions.WaitOneAsync(System.Threading.WaitHandle,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronous wait support via <see cref="T:System.Threading.Tasks.Task"/>
+            </summary>
+            <param name="handle">The <see cref="T:System.Threading.WaitHandle"/> instance to asynchronously wait to be set</param>
+            <param name="cancellationToken">A cancellation token to cancel the asynchronous wait</param>
+            <returns>A task which the caller can await. The task will complete once the event is set. Optionally,
+            the cancellation token may be used to cancel the wait</returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.WaitHandleExtensions.WaitAsync(System.Collections.Generic.IEnumerable{System.IntPtr})">
+            <summary>
+            Asynchronous wait support for any number of Win32 event handles
+            </summary>
+            <param name="win32Handles">A collection of Win32 event handles to asynchronously wait to be set</param>
+            <returns>A task which the caller can await. The task will complete once all the events are set</returns>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.LogFileRegistryConfig">
+            <summary>
+            Registry configuration for log file settings.
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.LogFileRegistryConfig.LogFileBase">
+            <summary>
+            Gets the log file base from the registry.
+            If the registry key does not exist, or the value is not found in the specified key, or the value is invalid the default is returned.
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.LogFileRegistryConfig.LogMaxSize">
+            <summary>
+            Gets the log max size from the registry.
+            If the registry key does not exist or the value is not found in the specified key, the default is returned.
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.LogFileRegistryConfig.LogMaxFile">
+            <summary>
+            Gets the log max file from the registry. If the registry key does not exist or the value is not found in the specified key, the default is returned. 
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.LogFileRegistryConfig.LogOldFile">
+            <summary>
+            Gets the log old file from the registry. If the registry key does not exist or the value is not found in the specified key, the default is returned.
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.LogFileRegistryConfig.LogEnabled">
+            <summary>
+            Gets a value to indicate if logging is enabled.
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.LogFileRegistryConfig.DumpFilePath">
+            <summary>
+            Gets the dump file path from the registry. If the registry key does not exist, or the value is not found in the specified key, or the value is invalid the default is returned.
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.LogFileRegistryConfig.DumpMaxSize">
+            <summary>
+            Gets the dump max size from the registry. If the registry key does not exist or the value is not found in the specified key, the default is returned. 
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.LogFileRegistryConfig.DumpMaxFile">
+            <summary>
+            Gets the dump max file from the registry. If the registry key does not exist or the value is not found in the specified key, the default is returned. 
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.LogFileRegistryConfig.DumpType">
+            <summary>
+            Gets the dump type from the registry. If the registry key does not exist or the value is not found in the specified key, the default is returned. 
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.LogFileRegistryConfig.ApplicationDataPath">
+            <summary>
+            The application data path. 
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LogFileRegistryConfig.Init(System.String,System.String,System.String)">
+            <summary>
+            Initialize the application specific variables
+            </summary>
+            <param name="applicationName"></param>
+            <param name="logPrefix"></param>
+            <param name="registryKeyName"></param>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.FooterLayout">
+            <summary>
+            An NLog Layout that logs an informational message when the log target is closed.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.FooterLayout.GetFormattedMessage(NLog.LogEventInfo)">
+            <summary>
+            Renders the layout for the specified logging event by invoking layout renderers.
+            </summary>
+            <param name="logEvent">The logging event.</param>
+            <returns>
+            The rendered layout.
+            </returns>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.HeaderLayout">
+            <summary>
+            An NLog layout that logs useful information about a new log target, including current local &amp; UTC time, OS &amp; machine details, and product details
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.HeaderLayout.ProductDetails">
+            <summary>
+            Gets or sets the product details to log.
+            </summary>
+            <value>
+            The product details.
+            </value>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.HeaderLayout.GetFormattedMessage(NLog.LogEventInfo)">
+            <summary>
+            Renders the layout for the specified logging event by invoking layout renderers.
+            </summary>
+            <param name="logEvent">The logging event.</param>
+            <returns>
+            The rendered layout.
+            </returns>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.Base64Url">
+            <summary>
+            Url-friendly base64 utilities.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.Base64Url.#ctor(SchneiderElectric.Common.Util.Base64UrlEncoding)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="base64UrlEncoding"></param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.Base64Url.Encode(System.String)">
+            <summary>
+            Encode value as url-friendly string
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.Base64Url.Decode(System.String)">
+            <summary>
+            Decode url-friendly base64 value.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.Base64UrlEncoding">
+            <summary>
+            An encoding to use for the base64 string
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.Base64UrlEncoding.Unicode">
+            <summary>
+            Unicode (or, at least, Microsofts concept of Unicode).
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.Base64UrlEncoding.Utf8">
+            <summary>
+            UTF8.
+            </summary>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.FileHelper">
+            <summary>
+            File helper methods
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.FileHelper.IsValidPathSyntax(System.String)">
+            <summary>
+            Check if a path adheres to valid syntax
+            </summary>
+            <param name="path">The path</param>
+            <returns>true if path is valid, false otherwise</returns>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.Format">
+            <summary>
+            Formatting and parsing helper methods
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.Format.ParseUrlTime(System.String,System.DateTime@)">
+            <summary>
+            Parses a string containing a URL format time
+            </summary>
+            <param name="str">
+            A string that contains a date and time to parse
+            </param>
+            <param name="result">
+            When this method returns, contains the <see cref="T:System.DateTime"/> value equivalent to the date and time contained in <c>str</c>, if the conversion succeeded
+            </param>
+            <returns>
+            <c>true</c> if the s parameter was converted successfully; otherwise, <c>false</c>
+            </returns>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.HLinkLocation">
+            <summary>
+            Contains helper for parsing hyperlink locations
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.HLinkLocation.#ctor(System.String)">
+            <summary>
+            Parses the location string into a collection of variables
+            </summary>
+            <param name="location">Location to be parsed</param>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.HLinkLocation.Count">
+            <summary>
+            Gets the number of variables
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.HLinkLocation.GetKey(System.Int32)">
+            <summary>
+            Gets the key of a variable.
+            </summary>
+            <param name="index">The index of the variable.</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.HLinkLocation.GetValue(System.Int32)">
+            <summary>
+            Gets the value of a variable.
+            </summary>
+            <param name="index">The index of the variable.</param>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.Limits`1">
+            <summary>
+            Provides generic access to numeric limits.
+            </summary>
+            <typeparam name="T">
+            The numeric type.
+            </typeparam>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.Limits`1.Minimum">
+            <summary>
+            Gets the minimum.
+            </summary>
+            <value>
+            The minimum.
+            </value>
+            <exception cref="T:System.InvalidOperationException">
+            T is not a numeric type.
+            </exception>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.Limits`1.Maximum">
+            <summary>
+            Gets the maximum.
+            </summary>
+            <value>
+            The maximum.
+            </value>
+            <exception cref="T:System.InvalidOperationException">
+            T is not a numeric type.
+            </exception>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.Limits`1.IsInteger">
+            <summary>
+            Gets a value indicating whether this instance is integer.
+            </summary>
+            <value>
+            <c>true</c> if this instance is integer; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.Limits`1.TryGetMinimum(`0@)">
+            <summary>
+            Tries to get the minimum value of the given generic type.
+            </summary>
+            <returns>
+            True if the minimum value is available. Otherwise, false.
+            </returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.Limits`1.TryGetMaximum(`0@)">
+            <summary>
+            Tries to get the maximum value of the given generic type.
+            </summary>
+            <returns>
+            True if the maximum value is available. Otherwise, false.
+            </returns>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.MiniDump">
+            <summary>
+            Interface to dbghelp.dll:MiniDumpWriteDump function
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.Normal">
+            <summary>
+            Include just the information necessary to capture stack traces for
+            all existing threads in a process.
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.WithDataSegments">
+            <summary>
+            Include the data sections from all loaded modules. This results in
+            the inclusion of global variables, which can make the minidump file
+            significantly larger. For per-module control, use the
+            ModuleWriteDataSeg enumeration value from MODULE_WRITE_FLAGS.
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.WithFullMemory">
+            <summary>
+            Include all accessible memory in the process. The raw memory data
+            is included at the end, so that the initial structures can be
+            mapped directly without the raw memory information. This option can
+            result in a very large file.
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.WithHandleData">
+            <summary>
+            Include high-level information about the operating system handles
+            that are active when the minidump is made.
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.FilterMemory">
+            <summary>
+            Stack and backing store memory written to the minidump file should
+            be filtered to remove all but the pointer values necessary to
+            reconstruct a stack trace.
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.ScanMemory">
+            <summary>
+            Stack and backing store memory should be scanned for pointer
+            references to modules in the module list. If a module is referenced
+            by stack or backing store memory, the ModuleWriteFlags member of
+            the MINIDUMP_CALLBACK_OUTPUT structure is set to
+            ModuleReferencedByMemory.
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.WithUnloadedModules">
+             <summary>
+             Include information from the list of modules that were recently
+             unloaded, if this information is maintained by the operating system.
+            
+            	    Windows Server 2003 and Windows XP:  The operating system does
+            		    not maintain information for unloaded modules until Windows
+                     Server 2003 with SP1 and Windows XP with SP2.
+            
+            	    DbgHelp 5.1:  This value is not supported.
+             </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.WithIndirectlyReferencedMemory">
+             <summary>
+             Include pages with data referenced by locals or other stack memory.
+             This option can increase the size of the minidump file significantly.
+            
+            		DbgHelp 5.1:  This value is not supported.
+             </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.FilterModulePaths">
+             <summary>
+             Filter module paths for information such as user names or important
+             directories. This option may prevent the system from locating the
+             image file and should be used only in special situations.
+            
+            		DbgHelp 5.1:  This value is not supported.
+             </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.WithProcessThreadData">
+             <summary>
+             Include complete per-process and per-thread information from the
+             operating system.
+            
+            		DbgHelp 5.1:  This value is not supported.
+             </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.WithPrivateReadWriteMemory">
+             <summary>
+             Scan the virtual address space for PAGE_READWRITE memory to be
+             included.
+            
+            		DbgHelp 5.1:  This value is not supported.
+             </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.WithoutOptionalData">
+             <summary>
+             Reduce the data that is dumped by eliminating memory regions that
+             are not essential to meet criteria specified for the dump. This
+             can avoid dumping memory that may contain data that is private to
+             the user. However, it is not a guarantee that no private
+             information will be present.
+            
+            		DbgHelp 6.1 and earlier:  This value is not supported.
+             </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.WithFullMemoryInfo">
+             <summary>
+             Include memory region information. For more information, see
+             MINIDUMP_MEMORY_INFO_LIST.
+            
+            		DbgHelp 6.1 and earlier:  This value is not supported.
+             </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.WithThreadInfo">
+             <summary>
+             Include thread state information. For more information, see
+             MINIDUMP_THREAD_INFO_LIST.
+            
+            		DbgHelp 6.1 and earlier:  This value is not supported.
+             </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.WithCodeSegments">
+             <summary>
+             Include all code and code-related sections from loaded modules to
+             capture executable content. For per-module control, use the
+             ModuleWriteCodeSegs enumeration value from MODULE_WRITE_FLAGS.
+            
+            		DbgHelp 6.1 and earlier:  This value is not supported.
+             </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.WithoutAuxiliaryState">
+            <summary>
+            Turns off secondary auxiliary-supported memory gathering.
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.WithFullAuxiliaryState">
+            <summary>
+            Requests that auxiliary data providers include their state in the
+            dump image; the state data that is included is provider dependent.
+            This option can result in a large dump image.
+            </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.WithPrivateWriteCopyMemory">
+             <summary>
+             Scans the virtual address space for PAGE_WRITECOPY memory to be
+             included.
+            
+            		Prior to DbgHelp 6.1:  This value is not supported.
+             </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.IgnoreInaccessibleMemory">
+             <summary>
+             If you specify MiniDumpWithFullMemory, the MiniDumpWriteDump
+             function will fail if the function cannot read the memory regions;
+             however, if you include MiniDumpIgnoreInaccessibleMemory, the
+             MiniDumpWriteDump function will ignore the memory read failures
+             and continue to generate the dump. Note that the inaccessible
+             memory regions are not included in the dump.
+            
+            		Prior to DbgHelp 6.1:  This value is not supported.
+             </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.WithTokenInformation">
+             <summary>
+             Adds security token related data. This will make the "!token"
+             extension work when processing a user-mode dump.
+            
+            		Prior to DbgHelp 6.1:  This value is not supported.
+             </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.WithModuleHeaders">
+             <summary>
+             Adds module header related data.
+            
+            		Prior to DbgHelp 6.1:  This value is not supported.
+             </summary>
+        </member>
+        <member name="F:SchneiderElectric.Common.Util.MiniDump.FilterTriage">
+             <summary>
+             Adds filter triage related data.
+            
+            		Prior to DbgHelp 6.1:  This value is not supported.
+             </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.MiniDump.Create(System.String)">
+            <summary>
+            Dumps the current process to the specified file.
+            </summary>
+            <param name="fileToDump">The file.</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.MiniDump.Create(System.String,System.Int32)">
+            <summary>
+            Dumps the current process to the specified file.
+            </summary>
+            <param name="fileToDump">The file.</param>
+            <param name="dumpMode">The flags that are passed to create the dump file (from the constants above).</param>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.TaskExtensions">
+            <summary>
+            Contains extensions to schedule task continuations on the UI thread, regardless of what thread the continuation is added.
+            This is also needed when running unit tests for asynchronous methods, due to a TPL bug that clears the synchronization context
+            To use these methods, the Init method must be called on the UI thread on app startup
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.Init">
+            <summary>
+            Initializes the task scheduler to use the current thread's synchronization context
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.UnitTestInit">
+            <summary>
+            Initialize the UIScheduler with CurrentThreadTaskScheduler :
+            It runs all tasks on the current thread when scheduling is requested
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWithOnUI``1(System.Threading.Tasks.Task,System.Func{System.Threading.Tasks.Task,``0})">
+            <summary>
+            Schedules a task continuation on the UI thread
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <param name="task">The task.</param>
+            <param name="continuation">The continuation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWithOnUI``1(System.Threading.Tasks.Task,System.Func{System.Threading.Tasks.Task,``0},System.Threading.Tasks.TaskContinuationOptions)">
+            <summary>
+            Schedules a task continuation on the UI thread
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <param name="task">The task.</param>
+            <param name="continuation">The continuation.</param>
+            <param name="options">The continuation options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWithOnUI``1(System.Threading.Tasks.Task,System.Func{System.Threading.Tasks.Task,``0},System.Threading.Tasks.TaskContinuationOptions,System.Threading.CancellationToken)">
+            <summary>
+            Schedules a task continuation on the UI thread
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <param name="task">The task.</param>
+            <param name="continuation">The continuation.</param>
+            <param name="options">The continuation options.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWithOnUI(System.Threading.Tasks.Task,System.Action{System.Threading.Tasks.Task})">
+            <summary>
+            Schedules a task continuation on the UI thread
+            </summary>
+            <param name="task">The task.</param>
+            <param name="continuation">The continuation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWithOnUI(System.Threading.Tasks.Task,System.Action{System.Threading.Tasks.Task},System.Threading.Tasks.TaskContinuationOptions)">
+            <summary>
+            Schedules a task continuation on the UI thread
+            </summary>
+            <param name="task">The task.</param>
+            <param name="continuation">The continuation.</param>
+            <param name="options">The continuation options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWithOnUI(System.Threading.Tasks.Task,System.Action{System.Threading.Tasks.Task},System.Threading.Tasks.TaskContinuationOptions,System.Threading.CancellationToken)">
+            <summary>
+            Schedules a task continuation on the UI thread
+            </summary>
+            <param name="task">The task.</param>
+            <param name="continuation">The continuation.</param>
+            <param name="options">The continuation options.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.FluentStart(System.Threading.Tasks.Task)">
+            <summary>
+            Starts the task returning the task for simple fluent chaining of actions.
+            </summary>
+            <param name="task">The task.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.FluentStart(System.Threading.Tasks.Task,System.Threading.Tasks.TaskScheduler)">
+            <summary>
+            Starts the task returning the task for simple fluent chaining of actions.
+            </summary>
+            <param name="task">The task.</param>
+            <param name="scheduler">The scheduler.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.LogException(System.Threading.Tasks.Task,NLog.Logger,NLog.LogLevel,System.String)">
+            <summary>
+            Logs the exception that occurred whilst executing this task
+            </summary>
+            <param name="task">The task.</param>
+            <param name="logger">The logger instance.</param>
+            <param name="logLevel">The log level.</param>
+            <param name="logMessage">The message to write to the logger. The exception reason will be automatically appended to this message.</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWithOnUI``2(System.Threading.Tasks.Task{``1},System.Func{System.Threading.Tasks.Task{``1},``0})">
+            <summary>
+            Schedules a task continuation on the UI thread
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <typeparam name="TTask">The type of the task.</typeparam>
+            <param name="task">The task.</param>
+            <param name="continuation">The continuation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWithOnUI``2(System.Threading.Tasks.Task{``1},System.Func{System.Threading.Tasks.Task{``1},``0},System.Threading.Tasks.TaskContinuationOptions)">
+            <summary>
+            Schedules a task continuation on the UI thread
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <typeparam name="TTask">The type of the task.</typeparam>
+            <param name="task">The task.</param>
+            <param name="continuation">The continuation.</param>
+            <param name="options">The continuation options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWithOnUI``2(System.Threading.Tasks.Task{``1},System.Func{System.Threading.Tasks.Task{``1},``0},System.Threading.Tasks.TaskContinuationOptions,System.Threading.CancellationToken)">
+            <summary>
+            Schedules a task continuation on the UI thread
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <typeparam name="TTask">The type of the task.</typeparam>
+            <param name="task">The task.</param>
+            <param name="continuation">The continuation.</param>
+            <param name="options">The continuation options.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWithOnUI``1(System.Threading.Tasks.Task{``0},System.Action{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Schedules a task continuation on the UI thread
+            </summary>
+            <typeparam name="TTask">The type of the task.</typeparam>
+            <param name="task">The task.</param>
+            <param name="continuation">The continuation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWithOnUI``1(System.Threading.Tasks.Task{``0},System.Action{System.Threading.Tasks.Task{``0}},System.Threading.Tasks.TaskContinuationOptions)">
+            <summary>
+            Schedules a task continuation on the UI thread
+            </summary>
+            <typeparam name="TTask">The type of the task.</typeparam>
+            <param name="task">The task.</param>
+            <param name="continuation">The continuation.</param>
+            <param name="options">The continuation options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWithOnUI``1(System.Threading.Tasks.Task{``0},System.Action{System.Threading.Tasks.Task{``0}},System.Threading.Tasks.TaskContinuationOptions,System.Threading.CancellationToken)">
+            <summary>
+            Schedules a task continuation on the UI thread
+            </summary>
+            <typeparam name="TTask">The type of the task.</typeparam>
+            <param name="task">The task.</param>
+            <param name="continuation">The continuation.</param>
+            <param name="options">The continuation options.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.FluentStart``1(System.Threading.Tasks.Task{``0})">
+            <summary>
+            Starts the task returning the task for simple fluent chaining of actions.
+            </summary>
+            <typeparam name="TTask">The type of the task.</typeparam>
+            <param name="task">The task.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.FluentStart``1(System.Threading.Tasks.Task{``0},System.Threading.Tasks.TaskScheduler)">
+            <summary>
+            Starts the task returning the task for simple fluent chaining of actions.
+            </summary>
+            <typeparam name="TTask">The type of the task.</typeparam>
+            <param name="task">The task.</param>
+            <param name="scheduler">The scheduler.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWhenAllOnUI``1(System.Threading.Tasks.Task[],System.Func{System.Threading.Tasks.Task[],``0})">
+            <summary>
+            Schedules a multi-task continuation on the UI thread.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <param name="tasks">The tasks.</param>
+            <param name="continuation">The continuation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWhenAllOnUI``1(System.Threading.Tasks.Task[],System.Func{System.Threading.Tasks.Task[],``0},System.Threading.Tasks.TaskContinuationOptions)">
+            <summary>
+            Schedules a multi-task continuation on the UI thread.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <param name="tasks">The tasks.</param>
+            <param name="continuation">The continuation.</param>
+            <param name="options">The continuation options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWhenAllOnUI``1(System.Threading.Tasks.Task[],System.Func{System.Threading.Tasks.Task[],``0},System.Threading.Tasks.TaskContinuationOptions,System.Threading.CancellationToken)">
+            <summary>
+            Schedules a multi-task continuation on the UI thread.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <param name="tasks">The tasks.</param>
+            <param name="continuation">The continuation.</param>
+            <param name="options">The continuation options.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWhenAllOnUI(System.Threading.Tasks.Task[],System.Action{System.Threading.Tasks.Task[]})">
+            <summary>
+            Schedules a multi-task continuation on the UI thread.
+            </summary>
+            <param name="tasks">The tasks.</param>
+            <param name="continuation">The continuation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWhenAllOnUI(System.Threading.Tasks.Task[],System.Action{System.Threading.Tasks.Task[]},System.Threading.Tasks.TaskContinuationOptions)">
+            <summary>
+            Schedules a multi-task continuation on the UI thread.
+            </summary>
+            <param name="tasks">The tasks.</param>
+            <param name="continuation">The continuation.</param>
+            <param name="options">The continuation options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWhenAllOnUI(System.Threading.Tasks.Task[],System.Action{System.Threading.Tasks.Task[]},System.Threading.Tasks.TaskContinuationOptions,System.Threading.CancellationToken)">
+            <summary>
+            Schedules a multi-task continuation on the UI thread.
+            </summary>
+            <param name="tasks">The tasks.</param>
+            <param name="continuation">The continuation.</param>
+            <param name="options">The continuation options.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWhenAllOnUI``2(System.Threading.Tasks.Task{``1}[],System.Func{System.Threading.Tasks.Task{``1}[],``0})">
+            <summary>
+            Schedules a multi-task continuation on the UI thread.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <typeparam name="TTask">The type of the task.</typeparam>
+            <param name="tasks">The tasks.</param>
+            <param name="continuation">The continuation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWhenAllOnUI``2(System.Threading.Tasks.Task{``1}[],System.Func{System.Threading.Tasks.Task{``1}[],``0},System.Threading.Tasks.TaskContinuationOptions)">
+            <summary>
+            Schedules a multi-task continuation on the UI thread.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <typeparam name="TTask">The type of the task.</typeparam>
+            <param name="tasks">The tasks.</param>
+            <param name="continuation">The continuation.</param>
+            <param name="options">The continuation options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWhenAllOnUI``2(System.Threading.Tasks.Task{``1}[],System.Func{System.Threading.Tasks.Task{``1}[],``0},System.Threading.Tasks.TaskContinuationOptions,System.Threading.CancellationToken)">
+            <summary>
+            Schedules a multi-task continuation on the UI thread.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <typeparam name="TTask">The type of the task.</typeparam>
+            <param name="tasks">The tasks.</param>
+            <param name="continuation">The continuation.</param>
+            <param name="options">The continuation options.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWhenAllOnUI``1(System.Threading.Tasks.Task{``0}[],System.Action{System.Threading.Tasks.Task{``0}[]})">
+            <summary>
+            Schedules a multi-task continuation on the UI thread.
+            </summary>
+            <typeparam name="TTask">The type of the task.</typeparam>
+            <param name="tasks">The tasks.</param>
+            <param name="continuation">The continuation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWhenAllOnUI``1(System.Threading.Tasks.Task{``0}[],System.Action{System.Threading.Tasks.Task{``0}[]},System.Threading.Tasks.TaskContinuationOptions)">
+            <summary>
+            Schedules a multi-task continuation on the UI thread.
+            </summary>
+            <typeparam name="TTask">The type of the task.</typeparam>
+            <param name="tasks">The tasks.</param>
+            <param name="continuation">The continuation.</param>
+            <param name="options">The continuation options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.ContinueWhenAllOnUI``1(System.Threading.Tasks.Task{``0}[],System.Action{System.Threading.Tasks.Task{``0}[]},System.Threading.Tasks.TaskContinuationOptions,System.Threading.CancellationToken)">
+            <summary>
+            Schedules a multi-task continuation on the UI thread.
+            </summary>
+            <typeparam name="TTask">The type of the task.</typeparam>
+            <param name="tasks">The tasks.</param>
+            <param name="continuation">The continuation.</param>
+            <param name="options">The continuation options.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.TaskExtensions.CurrentThreadTaskScheduler">
+            <summary>
+            Provides a task scheduler that runs tasks on the current thread.
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.TaskExtensions.CurrentThreadTaskScheduler.MaximumConcurrencyLevel">
+            <summary>Gets the maximum degree of parallelism for this scheduler.</summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.CurrentThreadTaskScheduler.QueueTask(System.Threading.Tasks.Task)">
+            <summary>Runs the provided Task synchronously on the current thread.</summary>
+            <param name="task">The task to be executed.</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.CurrentThreadTaskScheduler.TryExecuteTaskInline(System.Threading.Tasks.Task,System.Boolean)">
+            <summary>Runs the provided Task synchronously on the current thread.</summary>
+            <param name="task">The task to be executed.</param>
+            <param name="taskWasPreviouslyQueued">Whether the Task was previously queued to the scheduler.</param>
+            <returns>True if the Task was successfully executed; otherwise, false.</returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.TaskExtensions.CurrentThreadTaskScheduler.GetScheduledTasks">
+            <summary>Gets the Tasks currently scheduled to this scheduler.</summary>
+            <returns>An empty enumerable, as Tasks are never queued, only executed.</returns>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.LogFileLayout">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LogFileLayout.#ctor(System.String)">
+            <summary>
+            Constructs a LogFileLayout for NLog.
+            </summary>
+            <param name="instanceId">The Id of the ViewX instance that is logging</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LogFileLayout.GetFormattedMessage(NLog.LogEventInfo)">
+            <summary>
+            Renders the layout for the specified logging event by invoking layout renderers.
+            </summary>
+            <param name="logEvent">The logging event.</param>
+            <returns>
+            The rendered layout.
+            </returns>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.LogFileTarget">
+            <summary>
+            A file-based NLog target with rolling log files. 
+            The maximum size of a single file, the number of files, and the number of previous generations can be specified.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LogFileTarget.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SchneiderElectric.Common.Util.LogFileTarget"/> class.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LogFileTarget.#ctor(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SchneiderElectric.Common.Util.LogFileTarget"/> class.
+            </summary>
+            <param name="logFileBase">The base log file name. This should include the path, filename and extension - the current file index will be appended before the extension</param>
+            <param name="maximumFileSize">Maximum size of a single log file, in kilobytes.</param>
+            <param name="maximumCurrentFiles">The maximum number of current log files to keep.</param>
+            <param name="maximumOldGenerations">The number of old generations of log file to keep.</param>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.LogFileTarget.FileName">
+            <summary>
+            The base filename to use for log files, including path and extension.
+            The log file index will be appended to the file name before the extension e.g. MyLog_001.log
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.LogFileTarget.MaximumFileSize">
+            <summary>
+            The maximum size of a single log file, in kilobytes. When this is reached, the file is closed and a new file is opened with the next index.
+            If set to 0, then there is no maximum size for a log file.
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.LogFileTarget.MaximumCurrentFiles">
+            <summary>
+            The maximum number of files to keep for the current log run. Once this is reached, the oldest file is deleted.
+            E.g. If this is set to five, when file MyLog_006.log is opened, then MyLog_001.log will be deleted.
+            If set to 0, then all files will be kept.
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.LogFileTarget.MaximumOldGenerations">
+            <summary>
+            The maximum number of generations of log files to keep. When logging is initialized, files from a previous run
+            will be renamed with a _2 suffix, the previous previous run will be renamed with a _3 suffix, etc. The set of 
+            files with the oldest suffix will be deleted.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LogFileTarget.InitializeTarget">
+            <summary>
+            Initializes the target. Can be used by inheriting classes
+            to initialize logging.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LogFileTarget.CloseTarget">
+            <summary>
+            Closes the target and releases any unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LogFileTarget.Write(NLog.LogEventInfo)">
+            <summary>
+            Writes logging event to the log target.
+            classes.
+            </summary>
+            <param name="logEvent">Logging event to be written out.</param>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.ILoggingSource">
+            <summary>
+            Allows a consistent set of properties to be added to all logging events from a particular object.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.ILoggingSource.AddLogProperties(System.Collections.Generic.IDictionary{System.Object,System.Object})">
+            <summary>
+            Adds properties to a logging event.
+            </summary>
+            <param name="properties">The dictionary of properties.</param>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.LoggerExtensions">
+            <summary>
+            Extension methods for NLog
+            </summary>
+            <remarks>
+            The methods in this part take an ILoggingSource to add properties to the log event
+            </remarks>
+            <remarks>
+            The methods in this part are the same prototype as the instance methods on NLog,
+            but with arguments marked as non-localizable, and the same names os the ILoggingSource overloads for consistency
+            </remarks>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogInfo(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String)">
+            <summary>
+            Log a message from a source with level set to Info
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogInfo(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String,System.Object)">
+            <summary>
+            Format and log message from a source with level set to Info
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogInfo(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String,System.Object,System.Object)">
+            <summary>
+            Format and log message from a source with level set to Info
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">first formatting argument</param>
+            <param name="arg1">second formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogInfo(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String,System.Object[])">
+            <summary>
+            Format and log message from a source with level set to Info
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="format">message to be formatted</param>
+            <param name="args">formatting arguments</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogWarn(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String)">
+            <summary>
+            Log a message from a source with level set to Warning
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogWarn(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String,System.Object)">
+            <summary>
+            Format and log message from a source with level set to Warning
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogWarn(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String,System.Object,System.Object)">
+            <summary>
+            Format and log message from a source with level set to Warning
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">first formatting argument</param>
+            <param name="arg1">second formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogWarn(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String,System.Object[])">
+            <summary>
+            Format and log message from a source with level set to Warning
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="format">message to be formatted</param>
+            <param name="args">formatting arguments</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogDebug(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String)">
+            <summary>
+            Log a message from a source with level set to Debug
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogDebug(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String,System.Object)">
+            <summary>
+            Format and log message from a source with level set to Debug
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogDebug(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String,System.Object,System.Object)">
+            <summary>
+            Format and log message from a source with level set to Debug
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">first formatting argument</param>
+            <param name="arg1">second formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogDebug(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String,System.Object[])">
+            <summary>
+            Format and log message from a source with level set to Debug
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="format">message to be formatted</param>
+            <param name="args">formatting arguments</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogTrace(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String)">
+            <summary>
+            Log a message from a source with level set to Trace
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogTrace(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String,System.Object)">
+            <summary>
+            Format and log message from a source with level set to Trace
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogTrace(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String,System.Object,System.Object)">
+            <summary>
+            Format and log message from a source with level set to Trace
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">first formatting argument</param>
+            <param name="arg1">second formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogTrace(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String,System.Object[])">
+            <summary>
+            Format and log message from a source with level set to Trace
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="format">message to be formatted</param>
+            <param name="args">formatting arguments</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogError(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String)">
+            <summary>
+            Log a message from a source with level set to Error
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogError(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String,System.Object)">
+            <summary>
+            Format and log message from a source with level set to Error
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogError(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String,System.Object,System.Object)">
+            <summary>
+            Format and log message from a source with level set to Error
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">first formatting argument</param>
+            <param name="arg1">second formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogError(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String,System.Object[])">
+            <summary>
+            Format and log message from a source with level set to Warning
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="format">message to be formatted</param>
+            <param name="args">formatting arguments</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogErrorException(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.Exception,System.String)">
+            <summary>
+            Log an exception with a message from a source with level set to Error
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="exception">exception to be log</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogErrorException(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.Exception,System.String,System.Object)">
+            <summary>
+            Format and log an exception with a message from a source with level set to Error
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="exception">exception to be log</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogErrorException(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.Exception,System.String,System.Object[])">
+            <summary>
+            Format and log an exception with a message from a source with level set to Error
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="exception">exception to be log</param>
+            <param name="format">message to be formatted</param>
+            <param name="args">formatting arguments</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogFatal(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String)">
+            <summary>
+            Log a message from a source with level set to Fatal
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogFatal(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String,System.Object)">
+            <summary>
+            Format and log message from a source with level set to Fatal
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogFatal(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String,System.Object,System.Object)">
+            <summary>
+            Format and log message from a source with level set to Fatal
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">first formatting argument</param>
+            <param name="arg1">second formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogFatal(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.String,System.Object[])">
+            <summary>
+            Format and log message from a source with level set to Warning
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="format">message to be formatted</param>
+            <param name="args">formatting arguments</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogFatalException(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.Exception,System.String)">
+            <summary>
+            Log an exception with a message from a source with level set to Fatal
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="exception">exception to be log</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogFatalException(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.Exception,System.String,System.Object)">
+            <summary>
+            Format and log an exception with a message from a source with level set to Fatal
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="exception">exception to be log</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogFatalException(NLog.Logger,SchneiderElectric.Common.Util.ILoggingSource,System.Exception,System.String,System.Object[])">
+            <summary>
+            Format and log an exception with a message from a source with level set to Fatal
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="source">logging source</param>
+            <param name="exception">exception to be log</param>
+            <param name="format">message to be formatted</param>
+            <param name="args">formatting arguments</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogInfo(NLog.Logger,System.String)">
+            <summary>
+            Log a message from a source with level set to Info
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogInfo(NLog.Logger,System.String,System.Object)">
+            <summary>
+            Format and log message with level set to Info
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogInfo(NLog.Logger,System.String,System.Object,System.Object)">
+            <summary>
+            Format and log message with level set to Info
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">first formatting argument</param>
+            <param name="arg1">second formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogInfo(NLog.Logger,System.String,System.Object[])">
+            <summary>
+            Format and log message with level set to Info
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="format">message to be formatted</param>
+            <param name="args">formatting arguments</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogWarn(NLog.Logger,System.String)">
+            <summary>
+            Log a message with level set to Warning
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogWarn(NLog.Logger,System.String,System.Object)">
+            <summary>
+            Format and log message with level set to Warning
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogWarn(NLog.Logger,System.String,System.Object,System.Object)">
+            <summary>
+            Format and log message with level set to Warning
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">first formatting argument</param>
+            <param name="arg1">second formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogWarn(NLog.Logger,System.String,System.Object[])">
+            <summary>
+            Format and log message with level set to Warning
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="format">message to be formatted</param>
+            <param name="args">formatting arguments</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogError(NLog.Logger,System.String)">
+            <summary>
+            Log a message with level set to Error
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogError(NLog.Logger,System.String,System.Object)">
+            <summary>
+            Format and log message with level set to Error
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogError(NLog.Logger,System.String,System.Object,System.Object)">
+            <summary>
+            Format and log message with level set to Error
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">first formatting argument</param>
+            <param name="arg1">second formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogError(NLog.Logger,System.String,System.Object[])">
+            <summary>
+            Format and log message with level set to Warning
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="format">message to be formatted</param>
+            <param name="args">formatting arguments</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogErrorException(NLog.Logger,System.Exception,System.String)">
+            <summary>
+            Log an exception with a message with level set to Error
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="exception">exception to be log</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogErrorException(NLog.Logger,System.Exception,System.String,System.Object)">
+            <summary>
+            Format and log an exception with a message with level set to Error
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="exception">exception to be log</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogErrorException(NLog.Logger,System.Exception,System.String,System.Object[])">
+            <summary>
+            Format and log an exception with a message with level set to Error
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="exception">exception to be log</param>
+            <param name="format">message to be formatted</param>
+            <param name="args">formatting arguments</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogFatal(NLog.Logger,System.String)">
+            <summary>
+            Log a message with level set to Fatal
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogFatal(NLog.Logger,System.String,System.Object)">
+            <summary>
+            Format and log message with level set to Fatal
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogFatal(NLog.Logger,System.String,System.Object,System.Object)">
+            <summary>
+            Format and log message with level set to Fatal
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">first formatting argument</param>
+            <param name="arg1">second formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogFatal(NLog.Logger,System.String,System.Object[])">
+            <summary>
+            Format and log message with level set to Warning
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="format">message to be formatted</param>
+            <param name="args">formatting arguments</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogFatalException(NLog.Logger,System.Exception,System.String)">
+            <summary>
+            Log an exception with a message with level set to Fatal
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="exception">exception to be log</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogFatalException(NLog.Logger,System.Exception,System.String,System.Object)">
+            <summary>
+            Format and log an exception with a message with level set to Fatal
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="exception">exception to be log</param>
+            <param name="format">message to be formatted</param>
+            <param name="arg0">formatting argument</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LoggerExtensions.LogFatalException(NLog.Logger,System.Exception,System.String,System.Object[])">
+            <summary>
+            Format and log an exception with a message with level set to Fatal
+            </summary>
+            <param name="logger">the logger</param>
+            <param name="exception">exception to be log</param>
+            <param name="format">message to be formatted</param>
+            <param name="args">formatting arguments</param>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.KeyedCollectionEx`2">
+            <summary>
+            A collection whose keys are embedded in the items, where keys are retrieved using a <see cref="T:System.Func`2"/>.
+            </summary>
+            <typeparam name="TKey">The type of keys in the collection.</typeparam>
+            <typeparam name="TItem">The type of items in the collection.</typeparam>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.KeyedCollectionEx`2.#ctor(System.Func{`1,`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:SchneiderElectric.Common.Util.KeyedCollectionEx`2"/> class that uses the default equality comparer.
+            </summary>
+            <param name="keyFunc">The function used to retrieve keys from items.</param>
+            <exception cref="T:System.ArgumentNullException">
+              <paramref name="keyFunc"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.KeyedCollectionEx`2.#ctor(System.Func{`1,`0},System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:SchneiderElectric.Common.Util.KeyedCollectionEx`2"/> class that uses the specified equality comparer.
+            </summary>
+            <param name="keyFunc">The function used to retrieve keys from items.</param>
+            <param name="comparer">
+             The implementation of the <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> generic interface to use when comparing keys, 
+             or null to use the default equality comparer for the type of the key, obtained from <see cref="P:System.Collections.Generic.EqualityComparer`1.Default"/>.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+              <paramref name="keyFunc"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.KeyedCollectionEx`2.#ctor(System.Func{`1,`0},System.Collections.Generic.IEqualityComparer{`0},System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SchneiderElectric.Common.Util.KeyedCollectionEx`2"/> class that uses the specified equality comparer,
+            and creates a lookup dictionary when the specified threshold is exceeded.
+            </summary>
+            <param name="keyFunc">The function used to retrieve keys from items.</param>
+            <param name="comparer">
+             The implementation of the <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> generic interface to use when comparing keys, 
+             or null to use the default equality comparer for the type of the key, obtained from <see cref="P:System.Collections.Generic.EqualityComparer`1.Default"/>.
+            </param>
+            <param name="dictionaryCreationThreshold">
+            The number of elements the collection can hold without creating a lookup dictionary 
+            (0 creates the lookup dictionary when the first item is added), or –1 to specify that a lookup dictionary is never created.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+              <paramref name="keyFunc"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.KeyedCollectionEx`2.TryGetValue(`0,`1@)">
+            <summary>
+             Gets the item associated with the specified key.
+            </summary>
+            <param name="key">The key whose item to get.</param>
+            <param name="item">
+             When this method returns, the item associated with the specified key, if the key is found; 
+             otherwise, the default value for the type of the item parameter. This parameter is passed uninitialized.
+            </param>
+            <returns><c>true</c> if the collection contains an item with the specified key; otherwise, <c>false</c>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+              <paramref name="key"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.KeyedCollectionEx`2.GetKeyForItem(`1)">
+            <summary>
+            When implemented in a derived class, extracts the key from the specified element.
+            </summary>
+            <param name="item">The element from which to extract the key.</param>
+            <returns>
+            The key for the specified element.
+            </returns>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.LocalizedMessage">
+            <summary>
+            Details of a message that can be generated on any thread but required to be displayed in the current culture of the handling thread.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LocalizedMessage.#ctor(System.Resources.ResourceManager)">
+            <summary>
+            Initializes a new <see cref="T:SchneiderElectric.Common.Util.LocalizedMessage"/> instance.
+            </summary>
+            <param name="resourceManager">The resource manager.</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LocalizedMessage.#ctor(System.Resources.ResourceManager,System.String,System.Object[])">
+            <summary>
+            Initializes a new <see cref="T:SchneiderElectric.Common.Util.LocalizedMessage"/> instance.
+            </summary>
+            <param name="resourceManager">The resource manager.</param>
+            <param name="resourceKey">The resource key.</param>
+            <param name="parameters">The parameters.</param>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.LocalizedMessage.ResourceManager">
+            <summary>
+            Gets the resource manager to be used when formatting the message.
+            </summary>
+            <value>The resource manager.</value>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.LocalizedMessage.ResourceKey">
+            <summary>
+            Gets or sets the resource key identifying the message.
+            </summary>
+            <value>The resource key.</value>
+            <remarks>
+            This could be a format string.
+            </remarks>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.LocalizedMessage.Parameters">
+            <summary>
+            Gets the parameters that are required when formatting the message.
+            </summary>
+            <value>The parameters.</value>
+            <remarks>
+            The objects shall be in the order required by the format string.
+            </remarks>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.LocalizedMessage.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.StreamWrapper">
+            <summary>
+            A <see cref="T:System.IO.Stream"/> that wraps another stream. The major feature of <see cref="T:SchneiderElectric.Common.Util.StreamWrapper"/> is that it does not dispose the
+            underlying stream when it is disposed; this is useful when using classes such as <see cref="T:System.IO.BinaryReader"/> and
+            <see cref="T:System.Security.Cryptography.CryptoStream"/> that take ownership of the stream passed to their constructors.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.StreamWrapper.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SchneiderElectric.Common.Util.StreamWrapper"/> class.
+            </summary>
+            <param name="streamBase">The wrapped stream.</param>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.StreamWrapper.CanRead">
+            <summary>
+            Gets a value indicating whether the current stream supports reading.
+            </summary>
+            <returns><c>true</c> if the stream supports reading; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.StreamWrapper.CanSeek">
+            <summary>
+            Gets a value indicating whether the current stream supports seeking.
+            </summary>
+            <returns><c>true</c> if the stream supports seeking; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.StreamWrapper.CanWrite">
+            <summary>
+            Gets a value indicating whether the current stream supports writing.
+            </summary>
+            <returns><c>true</c> if the stream supports writing; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.StreamWrapper.Length">
+            <summary>
+            Gets the length in bytes of the stream.
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.StreamWrapper.Position">
+            <summary>
+            Gets or sets the position within the current stream.
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.StreamWrapper.WrappedStream">
+            <summary>
+            Gets the wrapped stream.
+            </summary>
+            <value>The wrapped stream.</value>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.StreamWrapper.BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins an asynchronous read operation.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.StreamWrapper.BeginWrite(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins an asynchronous write operation.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.StreamWrapper.EndRead(System.IAsyncResult)">
+            <summary>
+            Waits for the pending asynchronous read to complete.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.StreamWrapper.EndWrite(System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous write operation.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.StreamWrapper.Flush">
+            <summary>
+            Clears all buffers for this stream and causes any buffered data to be written to the underlying device.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.StreamWrapper.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads a sequence of bytes from the current stream and advances the position
+            within the stream by the number of bytes read.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.StreamWrapper.ReadByte">
+            <summary>
+            Reads a byte from the stream and advances the position within the stream by one byte, or returns -1 if at the end of the stream.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.StreamWrapper.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            Sets the position within the current stream.
+            </summary>
+            <param name="offset">A byte offset relative to the <paramref name="origin"/> parameter.</param>
+            <param name="origin">A value of type <see cref="T:System.IO.SeekOrigin"/> indicating the reference point used to obtain the new position.</param>
+            <returns>The new position within the current stream.</returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.StreamWrapper.SetLength(System.Int64)">
+            <summary>
+            Sets the length of the current stream.
+            </summary>
+            <param name="value">The desired length of the current stream in bytes.</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.StreamWrapper.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes a sequence of bytes to the current stream and advances the current position
+            within this stream by the number of bytes written.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.StreamWrapper.WriteByte(System.Byte)">
+            <summary>
+            Writes a byte to the current position in the stream and advances the position within the stream by one byte.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.StreamWrapper.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the <see cref="T:SchneiderElectric.Common.Util.StreamWrapper"/> and optionally releases the managed resources.
+            </summary>
+            <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.ThrowHelper">
+            <summary>
+            Contains helper methods for argument validation
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.ThrowHelper.ThrowIfArgumentNull``1(``0,System.String)">
+            <summary>
+            Throws if argument null.
+            </summary>
+            <typeparam name="T">Type of object to test</typeparam>
+            <param name="argument">The argument.</param>
+            <param name="argumentName">Name of the argument.</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.ThrowHelper.ThrowIfArgumentNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Throws if argument is empty.
+            </summary>
+            <typeparam name="T">Type of object to test</typeparam>
+            <param name="argument">The argument.</param>
+            <param name="argumentName">Name of the argument.</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.ThrowHelper.ThrowIfArgumentNullOrWhiteSpace(System.String,System.String)">
+            <summary>
+            Throws if argument null or whitespace.
+            </summary>
+            <param name="argument">The argument.</param>
+            <param name="argumentName">Name of the argument.</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.ThrowHelper.ThrowIfArgumentOutOfRange(System.Boolean,System.String)">
+            <summary>
+            Throws if argument out of range.
+            </summary>
+            <param name="outOfRange">Whether the argument is out of range.</param>
+            <param name="argumentName">Name of the argument.</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.ThrowHelper.ThrowArgumentException(System.Boolean,System.String,System.String)">
+            <summary>
+            Throws if argument invalid.
+            </summary>
+            <param name="invalid">Whether the argument is invalid.</param>
+            <param name="argumentName">Name of the argument.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.ThrowHelper.ThrowInvalidOperation(System.String)">
+            <summary>
+            Throws an InvalidOperationException.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.ThrowHelper.ThrowIfServiceIsNull``1(``0)">
+            <summary>
+            Logs the and throw if service is null.
+            Use this method after a IServiceProvider.GetService(..);
+            </summary>
+            <typeparam name="T">type of service</typeparam>
+            <param name="service">The service.</param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.ThrowHelper.ThrowIfHResultError(System.Int32)">
+            <summary>
+            Throws exception when HResult is not S_OK.
+            </summary>
+            <param name="code">The HResult code.</param>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.UriUtil">
+            <summary>
+            Contains helper and extension methods for dealing with URIs
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.UriUtil.GetHost(System.Uri)">
+            <summary>
+            Gets the unescaped Host from the URI
+            </summary>
+            <param name="uri"></param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.UriUtil.CreatePath(System.String[])">
+            <summary>
+            Creates a URI Path from the specified string parts, escaping each part and joining with '/'
+            </summary>
+            <param name="parts"></param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.UriUtil.GetPathParts(System.Uri)">
+            <summary>
+            Splits the Path of the specified URI into parts separated by '/' and unescapes each part
+            </summary>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.UriUtil.CreateQuery(System.String,System.String)">
+            <summary>
+            Creates a URI Query from the specified key/value pair
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.UriUtil.CreateQuery(System.Tuple{System.String,System.String}[])">
+            <summary>
+            Creates a URI Query from the specified key/value pairs
+            </summary>
+            <param name="parts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.UriUtil.AddToQuery(System.Uri,System.String,System.String)">
+            <summary>
+            Adds the specified key/value pair to the URI's query.
+            </summary>
+            <param name="uri"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.UriUtil.GetQueryParts(System.Uri)">
+            <summary>
+            Splits the Query of the specified URI into key/value pairs
+            </summary>
+            <remarks>
+            This method treats everything in the Uri after the '?' part of the query.
+            </remarks>
+            <param name="uri">The URI.</param>
+            <returns>The key-value pairs describing the components of the query.</returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.UriUtil.HostAndPort(System.String,System.Int32)">
+            <summary>
+            Combines a host and port into a string, separated by a colon
+            </summary>
+            <remarks>
+            An IPv6 host address containing colons is surrounded by square brackets to disambiguate the port separator
+            </remarks>
+            <param name="host">The host string, either a name or an IP address.</param>
+            <param name="port">The port number.</param>
+            <returns>A string representing the combined host and port.</returns>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.WaitCursor">
+            <summary>
+            A class to provide a busy cursor.
+            </summary>
+            <remarks>The busy cursor is only applicable for managed objects</remarks>
+            <example>
+            This should be instantiated within a using block so it is automatically disposed e.g.
+            using (new WaitCursor())
+            {
+              // busy code goes here
+            }
+            </example>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.WaitCursor.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.WaitCursor.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.DisposableService`1">
+            <summary>
+            Helper class to manage the creation of service types from the Prism container and automatically call their
+            <see cref="M:System.IDisposable.Dispose"/> method (if implemented)
+            </summary>
+            <remarks>This should be instantiated within a 'using' block so that the dispose happens automatically.</remarks>
+            <typeparam name="T">The service type to resolve from the Prism container</typeparam>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.DisposableService`1.Service">
+            <summary>
+            Gets the resolved service.
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.DisposableService`1.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.PrismExtensions">
+            <summary>
+            Provides additional Generic Type extensions for the <see cref="T:Prism.Ioc.IContainerProvider" />
+            </summary>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.PrismExtensions.TryResolve``1(Prism.Ioc.IContainerProvider)">
+            <summary>
+            Checks to see if the service is registered before attempting the resolution
+            </summary>
+            <param name="provider">The current <see cref="T:Prism.Ioc.IContainerProvider"/></param>
+            <typeparam name="T">The service <see cref="T:System.Type"/></typeparam>
+            <returns>The resolved service <see cref="T:System.Type"/> (if registered), otherwise the default value for the service</returns>
+        </member>
+        <member name="M:SchneiderElectric.Common.Util.PrismExtensions.TryResolve``1(Prism.Ioc.IContainerProvider,System.String)">
+            <summary>
+            Checks to see if the service is registered before attempting the resolution
+            </summary>
+            <param name="provider">The current <see cref="T:Prism.Ioc.IContainerProvider"/></param>
+            <param name="name">The service name/key used when registering the <see cref="T:System.Type"/></param>
+            <typeparam name="T">The service <see cref="T:System.Type"/></typeparam>
+            <returns>The resolved service <see cref="T:System.Type"/> (if registered), otherwise the default value for the service</returns>
+        </member>
+        <member name="T:SchneiderElectric.Common.Util.Resources.ExceptionMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.Resources.ExceptionMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.Resources.ExceptionMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.Resources.ExceptionMessages.Argument_PathContainsInvalidCharacters">
+            <summary>
+              Looks up a localized string similar to Path contains invalid characters..
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.Resources.ExceptionMessages.Argument_ValueCannotBeEmpty">
+            <summary>
+              Looks up a localized string similar to Value cannot be empty..
+            </summary>
+        </member>
+        <member name="P:SchneiderElectric.Common.Util.Resources.ExceptionMessages.Argument_ValueCannotBeNegative">
+            <summary>
+              Looks up a localized string similar to Value cannot be negative..
+            </summary>
+        </member>
+        <member name="T:System.Collections.Generic.CollectionExtensions">
+            <summary>
+            Contains extension methods for classes in the System.Collections.Generic namespace
+            </summary>
+        </member>
+        <member name="M:System.Collections.Generic.CollectionExtensions.Exclude``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            Returns a sequence containing all the elements in the source sequence except the specified element.
+            </summary>
+            <typeparam name="TSource">The type of the elements in the sequence.</typeparam>
+            <param name="source">The source sequence.</param>
+            <param name="element">The element to exclude.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Collections.Generic.CollectionExtensions.IsEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Determines whether the specified sequence is empty.
+            </summary>
+            <typeparam name="TSource">The type of the elements in the sequence.</typeparam>
+            <param name="source">The source sequence.</param>
+            <returns>
+              <c>true</c> if the specified sequence is empty; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:System.Collections.Generic.CollectionExtensions.AllEqual``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Determines whether all the elements in the specified sequence are equal, using the default equality comparer.
+            </summary>
+            <typeparam name="TSource">The type of the elements in the sequence.</typeparam>
+            <param name="source">The source sequence.</param>
+            <returns><c>true</c> if all the elements in the sequence are equal; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:System.Collections.Generic.CollectionExtensions.AllEqual``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Determines whether all the elements in the specified sequence are equal, using the specified equality comparer.
+            </summary>
+            <typeparam name="TSource">The type of the elements in the sequence.</typeparam>
+            <param name="source">The source sequence.</param>
+            <param name="comparer">The equality comparer to use to compare elements.</param>
+            <returns><c>true</c> if all the elements in the sequence are equal; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:System.Collections.Generic.CollectionExtensions.ToReadOnlyCollection``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Wraps the specified sequence in a <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/>.
+            </summary>
+            <typeparam name="TSource">The type of the elements in the sequence.</typeparam>
+            <param name="source">The source sequence.</param>
+            <returns>A <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/> containing all the elements in the source sequence.</returns>
+        </member>
+        <member name="M:System.Collections.Generic.CollectionExtensions.Zip``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1})">
+            <summary>
+            Zips two sequences into a sequence of <see cref="T:System.Tuple`2"/>.
+            </summary>
+            <typeparam name="TFirst">The type of the elements in the first sequence.</typeparam>
+            <typeparam name="TSecond">The type of the elements in the second sequence.</typeparam>
+            <param name="first">The first sequence.</param>
+            <param name="second">The second sequence.</param>
+            <returns>
+            A sequence containing a <see cref="T:System.Tuple`2"/> for each element in the first sequence and its corresponding element in the second sequence.
+            </returns>
+        </member>
+        <member name="M:System.Collections.Generic.CollectionExtensions.AppendAll``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns a collection containing the first collection then appended by the second collection.
+            </summary>
+            <param name="sourceCollection">The source collection.</param>
+            <param name="tailCollection">The collection appended after the source collection.</param>
+            <typeparam name="TSource">The type of sequence.</typeparam>
+            <returns>A source collection appended by the tail collection.</returns>
+        </member>
+        <member name="M:System.Collections.Generic.CollectionExtensions.Partition``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0})">
+            <summary>
+            Returns the specified sequence partitioned into items matching selector followed by items not matching selector
+            </summary>
+            <typeparam name="TSource">The type of the sequence.</typeparam>
+            <param name="source">The sequence.</param>
+            <param name="selector">The matching selector predicate.</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Collections.Generic.CollectionExtensions.AddRange``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Adds the specified items to a collection.
+            </summary>
+            <typeparam name="T">The type of the items in the collection.</typeparam>
+            <param name="target">The target collection.</param>
+            <param name="source">The items to add.</param>
+        </member>
+        <member name="M:System.Collections.Generic.CollectionExtensions.RemoveRange``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Removes the specified items from a collection.
+            </summary>
+            <typeparam name="T">The type of the items in the collection.</typeparam>
+            <param name="target">The target collection.</param>
+            <param name="source">The items to remove.</param>
+        </member>
+        <member name="M:System.Collections.Generic.CollectionExtensions.TryAddItem``1(System.Collections.Generic.ICollection{``0},``0)">
+            <summary>
+            Adds the specified item to the collection if it doesn't already exist within the collection.
+            </summary>
+            <typeparam name="T">The type of the items in the collection.</typeparam>
+            <param name="collection">The collection.</param>
+            <param name="item">The item to add to the collection.</param>
+            <returns><see langword="true"/> if the item was added, <see langword="false"/> otherwise.</returns>
+        </member>
+        <member name="M:System.Collections.Generic.CollectionExtensions.TryRemoveItem``1(System.Collections.Generic.ICollection{``0},``0)">
+            <summary>
+            Removes the specified item from the collection if it exists within the collection.
+            </summary>
+            <typeparam name="T">The type of the items in the collection.</typeparam>
+            <param name="collection">The collection.</param>
+            <param name="item">The item to remove from the collection.</param>
+            <returns><see langword="true"/> if the item was removed, <see langword="false"/> otherwise.</returns>
+        </member>
+        <member name="T:System.SystemExtensions">
+            <summary>
+            Contains extension methods for types in the System namespace.
+            </summary>
+        </member>
+        <member name="M:System.SystemExtensions.SafeCopy(System.String)">
+            <summary>
+            Safely copies the string instance via <see cref="M:System.String.Copy(System.String)"/>. If the instance is <see langword="null"/>
+            then <see langword="null"/> is returned for the copied instance.
+            </summary>
+            <param name="str">The instance to copy</param>
+            <returns>A copied string instance. Could be <see langword="null"/></returns>
+        </member>
+        <member name="M:System.SystemExtensions.SafeCopy(System.String[])">
+            <summary>
+            Safely copies the string array by creating a new array and using <see cref="M:System.SystemExtensions.SafeCopy(System.String)"/>
+            to copy each string element. If the array is <see langword="null"/> then <see langword="null"/>
+            is returned for the copied string array.
+            </summary>
+            <param name="strArray">The string array to copy</param>
+            <returns>A copied string array. Could be <see langword="null"/></returns>
+        </member>
+        <member name="M:System.SystemExtensions.Raise(System.EventHandler,System.Object)">
+            <summary>
+            Raises the specified event for an object.
+            </summary>
+            <param name="eventHandler">The event handler to call.</param>
+            <param name="sender">The object raising the event.</param>
+            <remarks>
+            This extension method can be used to simplify event raising. It can be called on an event field without the need to do a null check,
+            or use a local variable to prevent the well-known race condition
+            </remarks>
+        </member>
+        <member name="M:System.SystemExtensions.Raise``1(System.EventHandler{``0},System.Object,``0)">
+            <summary>
+            Raises the specified event for an object.
+            </summary>
+            <typeparam name="T">The type of the EventHandler</typeparam>
+            <param name="eventHandler">The event handler to call.</param>
+            <param name="sender">The object raising the event.</param>
+            <param name="args">The event arguments to pass.</param>
+            <remarks>
+            This extension method can be used to simplify event raising. It can be called on an event field without the need to do a null check,
+            or use a local variable to prevent the well-known race condition
+            </remarks>
+        </member>
+        <member name="T:JetBrains.Annotations.AssertionConditionType">
+            <summary>
+            Specifies assertion type. If the assertion method argument satisifes the condition, then the execution continues. 
+            Otherwise, execution is assumed to be halted
+            </summary>
+        </member>
+        <member name="F:JetBrains.Annotations.AssertionConditionType.IS_TRUE">
+            <summary>
+            Indicates that the marked parameter should be evaluated to true
+            </summary>
+        </member>
+        <member name="F:JetBrains.Annotations.AssertionConditionType.IS_FALSE">
+            <summary>
+            Indicates that the marked parameter should be evaluated to false
+            </summary>
+        </member>
+        <member name="F:JetBrains.Annotations.AssertionConditionType.IS_NULL">
+            <summary>
+            Indicates that the marked parameter should be evaluated to null value
+            </summary>
+        </member>
+        <member name="F:JetBrains.Annotations.AssertionConditionType.IS_NOT_NULL">
+            <summary>
+            Indicates that the marked parameter should be evaluated to not null value
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.ImplicitUseKindFlags">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:JetBrains.Annotations.ImplicitUseKindFlags.Default">
+            <summary>
+            Default
+            </summary>
+        </member>
+        <member name="F:JetBrains.Annotations.ImplicitUseKindFlags.Access">
+            <summary>
+            Only entity marked with attribute considered used
+            </summary>
+        </member>
+        <member name="F:JetBrains.Annotations.ImplicitUseKindFlags.Assign">
+            <summary>
+            Indicates implicit assignment to a member
+            </summary>
+        </member>
+        <member name="F:JetBrains.Annotations.ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature">
+            <summary>
+            Indicates implicit instantiation of a type with fixed constructor signature.
+            That means any unused constructor parameters won't be reported as such.
+            </summary>
+        </member>
+        <member name="F:JetBrains.Annotations.ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature">
+            <summary>
+            Indicates implicit instantiation of a type
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.ImplicitUseTargetFlags">
+            <summary>
+            Specify what is considered used implicitly when marked with <see cref="T:JetBrains.Annotations.MeansImplicitUseAttribute"/> or <see cref="T:JetBrains.Annotations.UsedImplicitlyAttribute"/>
+            </summary>
+        </member>
+        <member name="F:JetBrains.Annotations.ImplicitUseTargetFlags.Default">
+            <summary>
+            default 
+            </summary>
+        </member>
+        <member name="F:JetBrains.Annotations.ImplicitUseTargetFlags.Itself">
+            <summary>
+            itself
+            </summary>
+        </member>
+        <member name="F:JetBrains.Annotations.ImplicitUseTargetFlags.Members">
+            <summary>
+            Members of entity marked with attribute are considered used
+            </summary>
+        </member>
+        <member name="F:JetBrains.Annotations.ImplicitUseTargetFlags.WithMembers">
+            <summary>
+            Entity marked with attribute and all its members considered used
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.LocalizationRequiredAttribute">
+            <summary>
+            Indicates that marked element should be localized or not.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Annotations.LocalizationRequiredAttribute.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JetBrains.Annotations.LocalizationRequiredAttribute"/> class.
+            </summary>
+            <param name="required"><c>true</c> if a element should be localized; otherwise, <c>false</c>.</param>
+        </member>
+        <member name="P:JetBrains.Annotations.LocalizationRequiredAttribute.Required">
+            <summary>
+            Gets a value indicating whether a element should be localized.
+            <value><c>true</c> if a element should be localized; otherwise, <c>false</c>.</value>
+            </summary>
+        </member>
+        <member name="M:JetBrains.Annotations.LocalizationRequiredAttribute.Equals(System.Object)">
+            <summary>
+            Returns whether the value of the given object is equal to the current <see cref="T:JetBrains.Annotations.LocalizationRequiredAttribute"/>.
+            </summary>
+            <param name="obj">The object to test the value equality of. </param>
+            <returns>
+            <c>true</c> if the value of the given object is equal to that of the current; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:JetBrains.Annotations.LocalizationRequiredAttribute.GetHashCode">
+            <summary>
+            Returns the hash code for this instance.
+            </summary>
+            <returns>A hash code for the current <see cref="T:JetBrains.Annotations.LocalizationRequiredAttribute"/>.</returns>
+        </member>
+        <member name="T:JetBrains.Annotations.StringFormatMethodAttribute">
+            <summary>
+            Indicates that marked method builds string by format pattern and (optional) arguments. 
+            Parameter, which contains format string, should be given in constructor.
+            The format string should be in <see cref="M:System.String.Format(System.IFormatProvider,System.String,System.Object[])"/> -like form
+            </summary>
+        </member>
+        <member name="M:JetBrains.Annotations.StringFormatMethodAttribute.#ctor(System.String)">
+            <summary>
+            Initializes new instance of StringFormatMethodAttribute
+            </summary>
+            <param name="formatParameterName">Specifies which parameter of an annotated method should be treated as format-string</param>
+        </member>
+        <member name="P:JetBrains.Annotations.StringFormatMethodAttribute.FormatParameterName">
+            <summary>
+            Gets format parameter name
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.InvokerParameterNameAttribute">
+            <summary>
+            Indicates that the function argument should be string literal and match one  of the parameters of the caller function.
+            For example, <see cref="T:System.ArgumentNullException"/> has such parameter.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.AssertionMethodAttribute">
+            <summary>
+            Indicates that the marked method is assertion method, i.e. it halts control flow if one of the conditions is satisfied. 
+            To set the condition, mark one of the parameters with <see cref="T:JetBrains.Annotations.AssertionConditionAttribute"/> attribute
+            </summary>
+            <seealso cref="T:JetBrains.Annotations.AssertionConditionAttribute"/>
+        </member>
+        <member name="T:JetBrains.Annotations.AssertionConditionAttribute">
+            <summary>
+            Indicates the condition parameter of the assertion method. 
+            The method itself should be marked by <see cref="T:JetBrains.Annotations.AssertionMethodAttribute"/> attribute.
+            The mandatory argument of the attribute is the assertion type.
+            </summary>
+            <seealso cref="T:JetBrains.Annotations.AssertionConditionType"/>
+        </member>
+        <member name="M:JetBrains.Annotations.AssertionConditionAttribute.#ctor(JetBrains.Annotations.AssertionConditionType)">
+            <summary>
+            Initializes new instance of AssertionConditionAttribute
+            </summary>
+            <param name="conditionType">Specifies condition type</param>
+        </member>
+        <member name="P:JetBrains.Annotations.AssertionConditionAttribute.ConditionType">
+            <summary>
+            Gets condition type
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.TerminatesProgramAttribute">
+            <summary>
+            Indicates that the marked method unconditionally terminates control flow execution.
+            For example, it could unconditionally throw exception
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.CanBeNullAttribute">
+            <summary>
+            Indicates that the value of marked element could be <c>null</c> sometimes, so the check for <c>null</c> is necessary before its usage
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.NotNullAttribute">
+            <summary>
+            Indicates that the value of marked element could never be <c>null</c>
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.CannotApplyEqualityOperatorAttribute">
+            <summary>
+            Indicates that the value of marked type (or its derivatives) cannot be compared using '==' or '!=' operators.
+            There is only exception to compare with <c>null</c>, it is permitted
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.BaseTypeRequiredAttribute">
+            <summary>
+            When applied to target attribute, specifies a requirement for any type which is marked with 
+            target attribute to implement or inherit specific type or types
+            </summary>
+            <example>
+            <code>
+            [BaseTypeRequired(typeof(IComponent)] // Specify requirement
+            public class ComponentAttribute : Attribute 
+            {}
+            
+            [Component] // ComponentAttribute requires implementing IComponent interface
+            public class MyComponent : IComponent
+            {}
+            </code>
+            </example>
+        </member>
+        <member name="M:JetBrains.Annotations.BaseTypeRequiredAttribute.#ctor(System.Type)">
+            <summary>
+            Initializes new instance of BaseTypeRequiredAttribute
+            </summary>
+            <param name="baseType">Specifies which types are required</param>
+        </member>
+        <member name="P:JetBrains.Annotations.BaseTypeRequiredAttribute.BaseTypes">
+            <summary>
+            Gets enumerations of specified base types
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.UsedImplicitlyAttribute">
+            <summary>
+            Indicates that the marked symbol is used implicitly (e.g. via reflection, in external library),
+            so this symbol will not be marked as unused (as well as by other usage inspections)
+            </summary>
+        </member>
+        <member name="M:JetBrains.Annotations.UsedImplicitlyAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:JetBrains.Annotations.UsedImplicitlyAttribute"/> class.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Annotations.UsedImplicitlyAttribute.#ctor(JetBrains.Annotations.ImplicitUseKindFlags,JetBrains.Annotations.ImplicitUseTargetFlags)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JetBrains.Annotations.UsedImplicitlyAttribute"/> class.
+            </summary>
+            <param name="useKindFlags">The use kind flags.</param>
+            <param name="targetFlags">The target flags.</param>
+        </member>
+        <member name="M:JetBrains.Annotations.UsedImplicitlyAttribute.#ctor(JetBrains.Annotations.ImplicitUseKindFlags)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JetBrains.Annotations.UsedImplicitlyAttribute"/> class.
+            </summary>
+            <param name="useKindFlags">The use kind flags.</param>
+        </member>
+        <member name="M:JetBrains.Annotations.UsedImplicitlyAttribute.#ctor(JetBrains.Annotations.ImplicitUseTargetFlags)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JetBrains.Annotations.UsedImplicitlyAttribute"/> class.
+            </summary>
+            <param name="targetFlags">The target flags.</param>
+        </member>
+        <member name="P:JetBrains.Annotations.UsedImplicitlyAttribute.UseKindFlags">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:JetBrains.Annotations.UsedImplicitlyAttribute.TargetFlags">
+            <summary>
+            Gets value indicating what is meant to be used
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.MeansImplicitUseAttribute">
+            <summary>
+            Should be used on attributes and causes ReSharper to not mark symbols marked with such attributes as unused (as well as by other usage inspections)
+            </summary>
+        </member>
+        <member name="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:JetBrains.Annotations.MeansImplicitUseAttribute"/> class.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor(JetBrains.Annotations.ImplicitUseKindFlags,JetBrains.Annotations.ImplicitUseTargetFlags)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JetBrains.Annotations.MeansImplicitUseAttribute"/> class.
+            </summary>
+            <param name="useKindFlags">The use kind flags.</param>
+            <param name="targetFlags">The target flags.</param>
+        </member>
+        <member name="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor(JetBrains.Annotations.ImplicitUseKindFlags)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JetBrains.Annotations.MeansImplicitUseAttribute"/> class.
+            </summary>
+            <param name="useKindFlags">The use kind flags.</param>
+        </member>
+        <member name="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor(JetBrains.Annotations.ImplicitUseTargetFlags)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JetBrains.Annotations.MeansImplicitUseAttribute"/> class.
+            </summary>
+            <param name="targetFlags">The target flags.</param>
+        </member>
+        <member name="P:JetBrains.Annotations.MeansImplicitUseAttribute.UseKindFlags">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:JetBrains.Annotations.MeansImplicitUseAttribute.TargetFlags">
+            <summary>
+            Gets value indicating what is meant to be used
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.PublicAPIAttribute">
+            <summary>
+            This attribute is intended to mark publicly available API which should not be removed and so is treated as used.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Annotations.PublicAPIAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:JetBrains.Annotations.PublicAPIAttribute"/> class.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Annotations.PublicAPIAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JetBrains.Annotations.PublicAPIAttribute"/> class.
+            </summary>
+            <param name="comment">The comment.</param>
+        </member>
+        <member name="T:JetBrains.Annotations.InstantHandleAttribute">
+            <summary>
+            Tells code analysis engine if the parameter is completely handled when the invoked method is on stack. 
+            If the parameter is delegate, indicates that delegate is executed while the method is executed.
+            If the parameter is enumerable, indicates that it is enumerated while the method is executed.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.PureAttribute">
+            <summary>
+            Indicates that method doesn't contain observable side effects.
+            The same as <see cref="T:System.Diagnostics.Contracts.PureAttribute"/>
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.NoEnumerationAttribute">
+            <summary>
+            Indicates the parameter will not be enumerated by the method
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.PathReferenceAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:JetBrains.Annotations.PathReferenceAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:JetBrains.Annotations.PathReferenceAttribute"/> class.
+            </summary>
+        </member>
+        <member name="M:JetBrains.Annotations.PathReferenceAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JetBrains.Annotations.PathReferenceAttribute"/> class.
+            </summary>
+            <param name="basePath">The base path.</param>
+        </member>
+        <member name="P:JetBrains.Annotations.PathReferenceAttribute.BasePath">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

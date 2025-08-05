@@ -36,10 +36,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ClearScada.Client">
-      <HintPath>..\..\..\..\..\..\Program Files\Schneider Electric\ClearSCADA\ClearScada.Client.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Schneider Electric\ClearSCADA\ClearScada.Client.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
