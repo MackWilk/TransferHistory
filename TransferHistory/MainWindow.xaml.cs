@@ -41,6 +41,7 @@ namespace TransferHistory
             //File.Delete(exePath + "\\TransferHistory.ini"); 
             StartDate.SelectedDate = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
             EndDate.SelectedDate = DateTime.UtcNow;
+			UTCBox.IsChecked = true;
 
             LoadINIFile(exePath + "\\TransferHistory.ini");
             DateFormatCombo.Items.Add("Select");
