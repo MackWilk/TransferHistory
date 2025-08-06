@@ -34,18 +34,14 @@ namespace TransferHistory
 	public partial class MainWindow : Window
 	{
 		private string exePath;
-        private bool first = true;
         public MainWindow()
         {
             InitializeComponent();
             exePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            if (first)
-            {
-                //File.Delete(exePath + "\\TransferHistory.ini"); 
-                StartDate.SelectedDate = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-                EndDate.SelectedDate = DateTime.UtcNow;
-                first = false;
-            }
+            //File.Delete(exePath + "\\TransferHistory.ini"); 
+            StartDate.SelectedDate = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            EndDate.SelectedDate = DateTime.UtcNow;
+
             LoadINIFile(exePath + "\\TransferHistory.ini");
             DateFormatCombo.Items.Add("Select");
             DateFormatCombo.SelectedIndex = 0;
@@ -53,6 +49,7 @@ namespace TransferHistory
             DateFormatCombo.Items.Add("ANSI (DataFile Export)");
             DateFormatCombo.Items.Add("ISO8601");
         }
+
         // Date preformats
         private void DateFormatCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -105,6 +102,7 @@ namespace TransferHistory
 				password.Focus();
 			}
 		}
+
 		private void SaveINIFile(string filename)
 		{
 			using (var tw = System.IO.File.CreateText(filename))
@@ -238,19 +236,23 @@ namespace TransferHistory
                 DateFormatCombo_SelectionChanged(null, null);
                 encoding = Encoding.GetEncoding(1252);
                 Export_ANSI = true;
+				UTCBox.IsChecked = true;
             }
 
             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show(
-                "The \"Export (As DataFile)\" feature is much faster than the normal \"Export\" option but requires the data file to exist on the GeoSCADA Server Host.\nClick Yes if you want to proceed.", // The message to display
-				"Are you on the GeoSCADA Server Host?",           // The title of the message box
+                "When importing, the \"Export (As DataFile)\" feature is much faster than the normal \"Export\" option. The Datafile option does require the file to exist on the GeoSCADA Server Host.\n\nClick Yes if you want to proceed with the \'" + (Export_ANSI?"DataFile":"slower")+"\' option.", // The message to display
+				"Will you be on the GeoSCADA Server Host?",           // The title of the message box
                 System.Windows.Forms.MessageBoxButtons.YesNo,  // Specifies Yes and No buttons
 				System.Windows.Forms.MessageBoxIcon.Question   // Optional: Adds a question icon
 			);
             if (result == System.Windows.Forms.DialogResult.No)
             {
                 // Code to execute if the user clicks "No"
-                MessageBox.Show("Export Cancelled");
-				return;
+                await Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    Progress.Text = "Export Cancelled";
+                }));
+                return;
             }
             await Dispatcher.BeginInvoke(new Action(() =>
             {
@@ -384,7 +386,20 @@ namespace TransferHistory
 
         async private void Import_Click(object sender, RoutedEventArgs e)
 		{
-			await Dispatcher.BeginInvoke(new Action(() =>
+            System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show(
+                "The \"Import\" feature is much slower than the normal \"Import (As DataFile)\" option. If you have more than ~100 historic points, you have been advised NOT to use this method.\n\nClick Yes if you want to proceed.", // The message to display
+                "Are you sure you want to do this?",           // The title of the message box
+                System.Windows.Forms.MessageBoxButtons.YesNo,  // Specifies Yes and No buttons
+                System.Windows.Forms.MessageBoxIcon.Question   // Optional: Adds a question icon
+            );
+            if (result == System.Windows.Forms.DialogResult.No)
+            {
+                // Code to execute if the user clicks "No"
+                MessageBox.Show("Import Cancelled");
+                return;
+            }
+
+            await Dispatcher.BeginInvoke(new Action(() =>
 			{
 				Progress.Text = "Prepare to import";
 			}));
@@ -552,7 +567,7 @@ namespace TransferHistory
         async private void Import_Click_DataFile(object sender, RoutedEventArgs e)
         {
             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show(
-				"The \"Import (As DataFile)\" feature is much faster than the normal \"Export\" option but requires the data file to exist on the GeoSCADA Server Host.\nClick Yes if you want to proceed.", // The message to display
+				"The \"Import (As DataFile)\" feature is much faster than the normal \"Import\" option but requires the data was exported in the 'DataFile' format and to exist on the GeoSCADA Server Host.\n\nClick Yes if you want to proceed.", // The message to display
 				"Are you on the GeoSCADA Server Host?",           // The title of the message box
 				System.Windows.Forms.MessageBoxButtons.YesNo,  // Specifies Yes and No buttons
 				System.Windows.Forms.MessageBoxIcon.Question   // Optional: Adds a question icon
@@ -560,7 +575,7 @@ namespace TransferHistory
             if (result == System.Windows.Forms.DialogResult.No)
             {
                 // Code to execute if the user clicks "No"
-                MessageBox.Show("Export Cancelled");
+                MessageBox.Show("Import Cancelled");
                 return;
             }
 
@@ -634,7 +649,6 @@ namespace TransferHistory
             }));
         }
 
-
         void WriteHistory( List<HisRecord> HisRecords, ClearScada.Client.Simple.DBObject PointObj)
 		{
 			// Convert our records into four separate arrays
@@ -660,6 +674,7 @@ namespace TransferHistory
 			// Empty the list
 			HisRecords.Clear();
 		}
+
 		int DecodeQuality(string Name)
 		{
 			switch (Name)
@@ -678,6 +693,7 @@ namespace TransferHistory
 					return 192;
 			}
 		}
+
 		int DecodeReason(string Name)
 		{
 			switch (Name)
@@ -720,7 +736,5 @@ namespace TransferHistory
 			// Count and state # selected
 			Progress.Text = $"{listBox.SelectedItems.Count} points selected.";
 		}
-
-
 	}
 }
