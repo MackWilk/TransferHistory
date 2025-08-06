@@ -164,7 +164,7 @@ namespace TransferHistory
 			}
 			// Query points
 
-			string sql = "SELECT O.FullName As OName, O.TypeDesc FROM CHistory H INNER JOIN CDBObject O ON H.Id=O.Id WHERE OName LIKE '" + NameFilter.Text + "' ORDER BY OName";
+			string sql = "SELECT O.FullName As OName, O.TypeDesc FROM CHistory H INNER JOIN CDBObject O ON H.Id=O.Id WHERE OName LIKE '%" + NameFilter.Text + "%' ORDER BY OName";
 			ClearScada.Client.Advanced.IQuery serverQuery = AdvConnection.PrepareQuery(sql, new ClearScada.Client.Advanced.QueryParseParameters());
 			ClearScada.Client.Advanced.QueryResult queryResult = serverQuery.ExecuteSync(new ClearScada.Client.Advanced.QueryExecuteParameters());
 			if (queryResult.Status == ClearScada.Client.Advanced.QueryStatus.Succeeded || queryResult.Status == ClearScada.Client.Advanced.QueryStatus.NoDataFound)
